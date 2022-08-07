@@ -38,20 +38,24 @@ export const UploadImage = ({ user }: Props) => {
     <div>
       <p>Guest user's ID : {uid}</p>
       {/* Diplays Image  */}
-      {img && <img height={200} width={200} src={URL.createObjectURL(img)} />}
+      {img && <img alt="Profile Pic" height={200} width={200} src={URL.createObjectURL(img)} />}
       {/* Display success Message */}
       {uploadSuccessfuly && (
         <p>File uploaded successfully! Check Console Log for details</p>
       )}
       {/* The form to accept the image input */}
       <form onSubmit={submitHandler}>
+        <label>
+          Upload Image:
         <input
           type="File"
           required
           id="image"
+          form="img"
           name="image"
           onChange={imgHandler}
-        />
+          />
+          </label>
         {img && <button type="submit">Upload Image</button>}
       </form>
     </div>
