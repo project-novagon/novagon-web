@@ -35,7 +35,7 @@ function App() {
           </header>
 
           <section>
-            {user ? <MainMenu/> : <SignIn/>}
+            {user ? <MainMenu user={user}/> : <SignIn/>}
           </section>
         </div>
   );

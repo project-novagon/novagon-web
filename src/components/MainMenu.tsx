@@ -3,6 +3,8 @@ import { getDownloadURL, getStorage, listAll, ref, uploadBytes } from "firebase/
 import { v4 } from "uuid";
 import { useEffect, useState } from "react";
 import React from 'react';
+import { User } from "firebase/auth";
+import { UploadImage } from "./UploadImage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6YpcLlowvaCVSPUfpxrflvdi1wqzwdDs",
@@ -17,12 +19,15 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
-
-export function MainMenu() {
+interface Props {
+  user: User
+}
+export function MainMenu({user}:Props) {
 
   return (
     <>
     <h2>Images</h2>
+    <UploadImage user={user} />
     <h2>Videos</h2>
     <h2>Posts</h2>
     </>
