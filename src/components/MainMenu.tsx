@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import React from 'react';
 import { User } from "firebase/auth";
 import { UploadImage } from "./UploadImage";
+import { ImageGrid } from "./ImageGrid";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6YpcLlowvaCVSPUfpxrflvdi1wqzwdDs",
@@ -28,6 +29,7 @@ export function MainMenu({user}:Props) {
     <>
     <h2>Images</h2>
     <UploadImage user={user} />
+    <ImageGrid/>
     <h2>Videos</h2>
     <h2>Posts</h2>
     </>
