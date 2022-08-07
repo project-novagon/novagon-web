@@ -24,7 +24,7 @@ export const ImageGrid = () => {
         ? imgs.map((img, index) => {
             return <img style={{
                 padding:5
-            }} width={200} height={200} key={index} src={img} />;
+            }} width={200} key={index} src={img} />;
           })
         : null}
     </div>
