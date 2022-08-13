@@ -29,7 +29,11 @@ export function SignIn(){
   });
     }
     return (
+      <>
+      <h2>Welcome To Polygon Social</h2>
+      <p>Log In and see whats Happening!</p>
       <button onClick={signInWithAsGuest}>Sign in as guest</button>
+      </>
     )
   }
 
