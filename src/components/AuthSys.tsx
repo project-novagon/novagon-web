@@ -30,8 +30,8 @@ export function SignIn(){
     }
     return (
       <>
-      <h2>Welcome To Polygon Social</h2>
-      <p>Log In and see whats Happening!</p>
+      <h2 className="text-2xl">Welcome To Polygon Social</h2>
+      <p className="font-bold">Log In and see whats Happening!</p>
       <button onClick={signInWithAsGuest}>Sign in as guest</button>
       </>
     )
@@ -39,6 +39,6 @@ export function SignIn(){
 
   export function SignOut() {
     return auth.currentUser && (
-      <button  className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+      <button  className="border-0 bg-slate-600 text-white" onClick={() => auth.signOut()}>Sign Out</button>
     )
   }
