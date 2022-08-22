@@ -29,7 +29,7 @@ function App() {
   return (
         <div className="App">
           <header>
-            <h1 className="text-3xl text-green-600 font-mono">Polygon Social</h1>
+            <h1 className="">Polygon Social</h1>
             <a href-='mailto://alphangred57@gmail.com'>Contact</a> <br/>
             <SignOut/>
           </header>
