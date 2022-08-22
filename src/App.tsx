@@ -27,14 +27,13 @@ const auth = getAuth();
 function App() {
   const [user] = useAuthState(auth);
   return (
-        <div className="App">
+        <div className="dark: bg-zinc-800 ">
           <header>
-            <h1 className="">Polygon Social</h1>
-            <a href-='mailto://alphangred57@gmail.com'>Contact</a> <br/>
+            <h1 className=" text-3xl font-albertsans font-bold text-zinc-400">Polygon Social</h1>
             <SignOut/>
           </header>
 
-          <section>
+          <section className='p-6'>
             {user ? <MainMenu user={user}/> : <SignIn/>}
           </section>
         </div>
