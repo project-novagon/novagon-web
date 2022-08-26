@@ -27,9 +27,9 @@ const auth = getAuth();
 function App() {
   const [user] = useAuthState(auth);
   return (
-        <div className="dark: bg-zinc-800 ">
+        <div className="">
           <header>
-            <h1 className=" text-3xl font-albertsans font-bold text-zinc-400">Polygon Social</h1>
+            <h1 className="text-3xl font-bold font-albertsans text-zinc-400">Polygon Social</h1>
             <SignOut/>
           </header>
 

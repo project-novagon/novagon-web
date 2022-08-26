@@ -31,7 +31,6 @@ export function MainMenu({user}:Props) {
     <UploadImage user={user} />
     <ImageGrid/>
     <h2>Videos</h2>
-    <h2>Posts</h2>
     </>
   );
 }

@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+  @apply h-screen bg-white dark:bg-zinc-800 dark:text-white;
+}
