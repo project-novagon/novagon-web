@@ -34,9 +34,16 @@ export const UploadImage = ({ user }: Props) => {
     }
     return;
   };
+  console.log(`User ID: ${uid}`)
+  console.log("%cStop!",
+  "color:red;font-family:system-ui;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
+  console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
+  "font-weight: 700;",
+  "scam."
+  )
+
   return (
     <div>
-      <p>Guest user's ID : {uid}</p>
       {/* Diplays Image  */}
       {img && <img alt="Preview" height={200} width={200} className="rounded-md" src={URL.createObjectURL(img)} />}
       {/* Display success Message */}
