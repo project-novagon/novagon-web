@@ -39,6 +39,6 @@ export function SignIn(){
 
   export function SignOut() {
     return auth.currentUser && (
-      <button  className="border-zinc-900/50 border-2 bg-slate-600 text-white px-4" onClick={() => auth.signOut()}>Sign Out</button>
+      <button  className='dark:bg-gray-secondary px-4 rounded-full text-primaryBlue-primary font-bold bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-sm' onClick={() => auth.signOut()}>Sign Out</button>
     )
   }

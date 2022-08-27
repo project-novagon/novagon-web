@@ -28,7 +28,7 @@ function App() {
   const [user] = useAuthState(auth);
   return (
         <div className="">
-          <header>
+          <header className='flex space-x-8'>
             <h1 className="text-3xl font-bold font-albertsans text-zinc-400">Polygon Social</h1>
             <SignOut/>
           </header>

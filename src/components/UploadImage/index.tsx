@@ -38,13 +38,13 @@ export const UploadImage = ({ user }: Props) => {
     <div>
       <p>Guest user's ID : {uid}</p>
       {/* Diplays Image  */}
-      {img && <img alt="Profile Pic" height={200} width={200} src={URL.createObjectURL(img)} />}
+      {img && <img alt="Profile Pic" height={200} width={200} className="rounded-md" src={URL.createObjectURL(img)} />}
       {/* Display success Message */}
       {uploadSuccessfuly && (
         <p>File uploaded successfully! Check Console Log for details</p>
       )}
       {/* The form to accept the image input */}
-      <form onSubmit={submitHandler}>
+      <form  className="p-1" onSubmit={submitHandler}>
         <label>
           Upload Image:
         <input
@@ -54,11 +54,11 @@ export const UploadImage = ({ user }: Props) => {
           form="img"
           name="image"
           onChange={imgHandler}
-          className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold dark:file:bg-gray-secondary file:text-primaryBlue-primary hover:file:bg-zinc-700"
+          className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold dark:file:bg-gray-secondary file:text-primaryBlue-primary dark:hover:file:bg-zinc-700 hover:file:bg-zinc-200 file:bg-zinc-100"
           multiple
           />
           </label>
-        {img && <button type="submit">Upload Image</button>}
+        {img && <button className="dark:bg-gray-secondary px-4 rounded-full text-primaryBlue-primary font-bold bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-sm py-2" type="submit">Upload Image</button>}
       </form>
     </div>
   );
