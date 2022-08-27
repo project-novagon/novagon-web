@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+const auth = getAuth(app);
 
 export function SignIn(){
     const signInWithAsGuest = () => {
@@ -32,13 +32,13 @@ export function SignIn(){
       <>
       <h2 className="text-2xl">Welcome To Polygon Social</h2>
       <p className="font-bold">Log In and see whats Happening!</p>
-      <button onClick={signInWithAsGuest}>Sign in as guest</button>
+      <button onClick={signInWithAsGuest} className="dark:bg-gray-secondary px-4 rounded-full text-primaryBlue-primary font-bold bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-sm py-2">Sign in as guest</button>
       </>
     )
   }
 
   export function SignOut() {
     return auth.currentUser && (
-      <button  className='dark:bg-gray-secondary px-4 rounded-full text-primaryBlue-primary font-bold bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-sm' onClick={() => auth.signOut()}>Sign Out</button>
+      <button  className='dark:bg-gray-secondary px-4 rounded-full text-primaryBlue-primary font-bold bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-sm py-2' onClick={() => auth.signOut()}>Sign Out</button>
     )
   }
