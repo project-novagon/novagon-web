@@ -1,25 +1,25 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Novagon Social",
+  "name": "The Social Media Of the future",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://novagoncdn.netlify.app/img/Social.svg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "https://novagoncdn.netlify.app/img/Social.svg",
+      "type": "image/svg",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
+      "src": "https://novagoncdn.netlify.app/img/Social.svg",
+      "type": "image/svg",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#00B0F0",
+  "background_color": "#404040"
 }
