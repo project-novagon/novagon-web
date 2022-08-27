@@ -54,6 +54,8 @@ export const UploadImage = ({ user }: Props) => {
           form="img"
           name="image"
           onChange={imgHandler}
+          className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold dark:file:bg-gray-secondary file:text-primaryBlue-primary hover:file:bg-zinc-700"
+          multiple
           />
           </label>
         {img && <button type="submit">Upload Image</button>}
