@@ -38,10 +38,10 @@ export const UploadImage = ({ user }: Props) => {
     <div>
       <p>Guest user's ID : {uid}</p>
       {/* Diplays Image  */}
-      {img && <img alt="Profile Pic" height={200} width={200} className="rounded-md" src={URL.createObjectURL(img)} />}
+      {img && <img alt="Preview" height={200} width={200} className="rounded-md" src={URL.createObjectURL(img)} />}
       {/* Display success Message */}
       {uploadSuccessfuly && (
-        <p>File uploaded successfully! Check Console Log for details</p>
+        <p>File uploaded successfully!</p>
       )}
       {/* The form to accept the image input */}
       <form  className="p-1" onSubmit={submitHandler}>
@@ -58,7 +58,7 @@ export const UploadImage = ({ user }: Props) => {
           multiple
           />
           </label>
-        {img && <button className="dark:bg-gray-secondary px-4 rounded-full text-primaryBlue-primary font-bold bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-sm py-2" type="submit">Upload Image</button>}
+        {img && <button className="px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700" type="submit">Upload Image</button>}
       </form>
     </div>
   );
