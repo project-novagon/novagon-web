@@ -30,7 +30,7 @@ export function SignIn(){
     }
     return (
       <>
-      <h2 className="text-2xl">Welcome To Polygon Social</h2>
+      <h2 className="text-2xl">Welcome To <span className="bg-clip-text text-transparent bg-gradient-to-r from-primaryBlue-primary to-violet-900 transition hover:from-violet-900 hover:to-primaryBlue-primary">Novagon Social</span></h2>
       <p className="font-bold">Log In and see whats Happening!</p>
       <button onClick={signInWithAsGuest} className="dark:bg-gray-secondary px-4 rounded-full text-primaryBlue-primary font-bold bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-sm py-2">Sign in as guest</button>
       </>

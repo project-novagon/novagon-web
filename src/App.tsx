@@ -2,7 +2,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { SignIn, SignOut } from "./components/AuthSys";
 import { MainMenu } from "./components/MainMenu";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import "firebase/firestore";
@@ -26,12 +25,20 @@ const auth = getAuth(app);
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/videos" element={ <Videos/>} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <header className="flex space-x-8">
+        <h1 className="text-3xl font-bold font-albertsans text-zinc-400">
+          Novagon Social
+        </h1>
+        <SignOut />
+      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/videos" element={<Videos />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
@@ -40,13 +47,6 @@ function Home() {
 
   return (
     <>
-      <header className="flex space-x-8">
-        <h1 className="text-3xl font-bold font-albertsans text-zinc-400">
-          Polygon Social
-        </h1>
-        <SignOut />
-      </header>
-
       <section className="p-6">
         {user ? <MainMenu user={user} /> : <SignIn />}
       </section>
@@ -56,24 +56,17 @@ function Home() {
 function Videos() {
   const [user] = useAuthState(auth);
   return (
-      <>
-        <header className="flex space-x-8">
-          <h1 className="text-3xl font-bold font-albertsans text-zinc-400">
-            Polygon Social
-          </h1>
-          <SignOut />
-        </header>
-
-        <section className="p-6">
-          {user ? <VideoUI/> : <SignIn />}
-        </section>
-      </>
+    <>
+      <section className="p-6">
+        {user ? <VideoUI /> : <SignIn />}
+      </section>
+    </>
   );
 }
 
 
-function VideoUI(){
-  return(
+function VideoUI() {
+  return (
     <>
       <h1 className="text-2xl font-bold transition-all hover:text-primaryBlue-primary">WIP</h1>
       <p>We're working on it!</p>

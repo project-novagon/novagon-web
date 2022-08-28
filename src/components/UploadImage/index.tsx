@@ -48,7 +48,7 @@ export const UploadImage = ({ user }: Props) => {
       {img && <img alt="Preview" height={200} width={200} className="rounded-md" src={URL.createObjectURL(img)} />}
       {/* Display success Message */}
       {uploadSuccessfuly && (
-        <p>File uploaded successfully!</p>
+        <p>File uploaded successfully! Refesh to see it</p>
       )}
       {/* The form to accept the image input */}
       <form  className="p-1" onSubmit={submitHandler}>
