@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { initializeApp } from "firebase/app";
 import { getDownloadURL, getStorage, listAll, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
