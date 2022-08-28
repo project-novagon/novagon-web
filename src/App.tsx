@@ -3,6 +3,7 @@ import { SignIn, SignOut } from "./components/AuthSys";
 import { MainMenu } from "./components/MainMenu";
 import { initializeApp } from "firebase/app";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline"
 import { getAuth } from "firebase/auth";
 import "firebase/firestore";
 import "firebase/auth";
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/videos" element={<Videos />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
@@ -64,10 +66,29 @@ function Videos() {
   );
 }
 
+function NotFound() {
+  return (
+    <>
+      <div className="flex h-screen items-center justify-center">
+        <div className="text-center flex items-center space-x-3">
+          <div>
+            <QuestionMarkCircleIcon className="w-9"/>
+          </div>
+          <div>
+          <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">404</h1>
+          <p>Not Found</p>
+          <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
 
 function VideoUI() {
   return (
     <>
+
       <h1 className="text-2xl font-bold transition-all hover:text-primaryBlue-primary">WIP</h1>
       <p>We're working on it!</p>
       <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
