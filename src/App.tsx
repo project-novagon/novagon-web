@@ -31,7 +31,7 @@ function App() {
         <h1 className="text-3xl font-bold font-albertsans text-zinc-400">
           Novagon Social
         </h1>
-        <SignOut />
+          <SignOut />
       </header>
       <BrowserRouter>
         <Routes>
@@ -72,12 +72,12 @@ function NotFound() {
       <div className="flex h-screen items-center justify-center">
         <div className="text-center flex items-center space-x-3">
           <div>
-            <QuestionMarkCircleIcon className="w-9"/>
+            <QuestionMarkCircleIcon className="w-9" />
           </div>
           <div>
-          <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">404</h1>
-          <p>Not Found</p>
-          <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
+            <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">404</h1>
+            <p>Not Found</p>
+            <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
           </div>
         </div>
       </div>
