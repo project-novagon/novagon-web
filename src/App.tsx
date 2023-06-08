@@ -9,7 +9,7 @@ import "firebase/firestore";
 import "firebase/auth";
 import React from "react";
 import "./App.css";
-import { ChatRoom } from "./components/chat/chatRoom";
+// import { ChatRoom } from "./components/chat/chatRoom";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6YpcLlowvaCVSPUfpxrflvdi1wqzwdDs",
@@ -74,7 +74,7 @@ function Chat() {
   return (
     <>
       <section className="p-6">
-        {user ? <ChatRoom /> : <SignIn />}
+        {user ? <p> wip </p> : <SignIn />}
       </section>
     </>
   );
