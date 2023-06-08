@@ -30,7 +30,7 @@ function App() {
       <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
         <div className="flex items-center space-x-4">
           <img src="https://novagoncdn.netlify.app/img/nvgweb/NovoChat%20Logo%402x.png" alt="" width="48px" />
-        <h1 className='text-xl font-bold font-albertsans'>Novagon Social</h1>
+          <h1 className='text-xl font-bold font-albertsans'>Novagon Social</h1>
         </div>
         <SignOut auth={auth} />
       </header>
@@ -38,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/videos" element={<Videos />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
@@ -62,6 +63,17 @@ function Videos() {
     <>
       <section className="p-6">
         {user ? <VideoUI /> : <SignIn />}
+      </section>
+    </>
+  );
+}
+
+function Chat() {
+  const [user] = useAuthState(auth);
+  return (
+    <>
+      <section className="p-6">
+        {user ? <h1 /> : <SignIn />}
       </section>
     </>
   );
