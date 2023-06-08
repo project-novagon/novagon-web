@@ -1,3 +1,4 @@
+/*
 import React, { useState } from 'react';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
@@ -94,3 +95,4 @@ function ChatRoom() {
 }
 
 export default ChatRoom;
+*/
