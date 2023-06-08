@@ -28,7 +28,7 @@ export function MainMenu({user}:Props) {
 
   return (
     <>
-    <h2>Images</h2>
+    <h2 className="text-2xl font-bold">Images</h2>
     <UploadImage user={user} />
     <ImageGrid/>
     </>
