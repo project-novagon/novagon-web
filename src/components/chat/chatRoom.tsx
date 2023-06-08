@@ -1,39 +1,59 @@
-import React, { useRef, useState } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import React, { useState } from 'react';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { PaperAirplaneIcon } from '@heroicons/react/solid';
+import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+
 
 firebase.initializeApp({
   // Your Firebase config
 });
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
-
 interface Message {
   id: string;
   text: string;
-  createdAt: firebase.firestore.Timestamp;
+  createdAt: firebase.firestore.Timestamp | Date;
   uid: string;
   photoURL: string;
   displayName: string;
 }
 
+interface ChatMessageProps {
+  message: Message;
+  currentUser: firebase.User | null;
+}
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
+function ChatMessage(props: ChatMessageProps) {
+  const { message, currentUser } = props;
+  const { text, uid, photoURL, displayName } = message;
+  const messageClass = uid === currentUser?.uid ? 'sent' : 'received';
+
+  return (
+    <div className={`message ${messageClass}`}>
+      <img src={photoURL} alt="User Avatar" />
+      <div>
+        <span className="display-name">{displayName}</span>
+        <p>{text}</p>
+      </div>
+    </div>
+  );
+}
+
 function ChatRoom() {
-  const dummy = useRef<HTMLSpanElement>(null);
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limitToLast(1000);
 
   const [messages] = useCollectionData<Message>(query, { idField: 'id' });
-
   const [formValue, setFormValue] = useState('');
 
   const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { uid, photoURL, displayName } = auth.currentUser!;
+    const { uid, photoURL, displayName } = auth.currentUser || {};
 
     await messagesRef.add({
       text: formValue,
@@ -44,52 +64,33 @@ function ChatRoom() {
     });
 
     setFormValue('');
-    dummy.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <>
+    <div>
       <main>
         {messages &&
-          messages.map((msg) => (
-            <ChatMessage key={msg.id} message={msg} currentUser={auth.currentUser!} />
+          messages.map((message) => (
+            <ChatMessage
+              key={message.id}
+              message={message}
+              currentUser={auth.currentUser}
+            />
           ))}
-
-        <span ref={dummy}></span>
       </main>
 
-      <form className="MessageSender" onSubmit={sendMessage}>
+      <form onSubmit={sendMessage}>
         <input
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
-          className="px-4 m-1 text-lg leading-3 rounded-md shadow-sm opacity-100 w-96 font-albertsans ring-4 bg-zinc-300 dark:bg-zinc-500 ring-zinc-400 dark:ring-zinc-600 ring-inset focus:ring-zinc-500 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:ring-4"
-          placeholder="What's on your mind?"
+          placeholder="Type your message..."
         />
-
-        <button className="px-5 dark:bg-zinc-600 bg-primaryBlue-primary" type="submit" disabled={!formValue}>
-          <PaperAirplaneIcon className="w-8" />
+        <button type="submit">
+          <PaperAirplaneIcon className="send-icon" />
         </button>
       </form>
-    </>
+    </div>
   );
 }
 
-interface ChatMessageProps {
-  message: Message;
-  currentUser: firebase.User;
-}
-
-function ChatMessage(props: ChatMessageProps) {
-  const { text, uid, photoURL, displayName } = props.message;
-  const messageClass = uid === props.currentUser.uid ? 'sent' : 'received';
-
-  return (
-    <>
-      <div className={`message ${messageClass}`}>
-        <p>{displayName}</p>
-        <img className="rounded-full w-9 h-9" src={photoURL || 'https://api.adorable.io/avatars/23'} alt="pfp" />
-        <p>{text}</p>
-      </div>
-    </>
-  );
-}
+export default ChatRoom;
