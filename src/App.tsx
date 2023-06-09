@@ -9,7 +9,7 @@ import "firebase/firestore";
 import "firebase/auth";
 import React from "react";
 import "./App.css";
-// import { ChatRoom } from "./components/chat/chatRoom";
+//// import { ChatRoom } from "./components/chat/chatRoom";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6YpcLlowvaCVSPUfpxrflvdi1wqzwdDs",
