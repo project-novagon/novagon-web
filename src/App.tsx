@@ -1,7 +1,6 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { SignIn, SignOut } from "./components/AuthSys";
 import { ImageMenu } from "./components/mainMenu";
-import { initializeApp } from "firebase/app";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline"
 import { getAuth, Auth } from "firebase/auth";
@@ -10,20 +9,12 @@ import "firebase/firestore";
 import "firebase/auth";
 import React from "react";
 import "./App.css";
+import { app } from "./firebase-config";
 //// import { ChatRoom } from "./components/chat/chatRoom";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyB6YpcLlowvaCVSPUfpxrflvdi1wqzwdDs",
-  authDomain: "polygon-social.firebaseapp.com",
-  projectId: "polygon-social",
-  storageBucket: "polygon-social.appspot.com",
-  messagingSenderId: "1040413982197",
-  appId: "1:1040413982197:web:d8b8a70509ec88c50274bc",
-  measurementId: "G-3L8NZ3JVB5",
-};
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
 console.log("%cStop!",
 "color:red;font-family:system-ui;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
 console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",

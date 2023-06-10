@@ -2,19 +2,9 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signInAnonymously, signInWithPopup, GithubAuthProvider, GoogleAuthProvider, Auth } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from "react-firebase-hooks/auth";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyB6YpcLlowvaCVSPUfpxrflvdi1wqzwdDs",
-  authDomain: "polygon-social.firebaseapp.com",
-  projectId: "polygon-social",
-  storageBucket: "polygon-social.appspot.com",
-  messagingSenderId: "1040413982197",
-  appId: "1:1040413982197:web:d8b8a70509ec88c50274bc",
-  measurementId: "G-3L8NZ3JVB5"
-};
+import { app } from "../firebase-config";
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 export function SignIn() {
