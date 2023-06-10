@@ -8,7 +8,7 @@ import { User } from "firebase/auth";
 import { UploadVideo } from "./uploadVideo";
 import { ImageGrid } from "./ImageGrid";
 import { UploadImage } from "./UploadImage";
-import { videoGrid } from "./videoGrid";
+import { VideoGrid } from "./videoGrid";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6YpcLlowvaCVSPUfpxrflvdi1wqzwdDs",
@@ -40,9 +40,9 @@ function ImageMenu({user}: Props) {
 function VideoMenu({ user }: Props) {
   return (
     <>
-      <h2 className="text-2xl font-bold">Images</h2>
-      <UploadImage user={user} />
-      <ImageGrid />
+      <h2 className="text-2xl font-bold">Videos</h2>
+      <UploadVideo user={user} />
+      <VideoGrid />
     </>
   );
 };
