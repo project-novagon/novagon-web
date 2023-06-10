@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline"
 import { getAuth } from "firebase/auth";
+import { VideoMenu } from "./components/mainMenu";
 import "firebase/firestore";
 import "firebase/auth";
 import React from "react";
@@ -35,7 +36,7 @@ function App() {
       </header>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ImageUI />} />
           <Route path="/videos" element={<Videos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -44,7 +45,7 @@ function App() {
   );
 }
 
-function Home() {
+function ImageUI() {
   const [user] = useAuthState(auth);
 
   return (
@@ -65,7 +66,17 @@ function Videos() {
     </>
   );
 }
+function VideoUI() {
+  const [user] = useAuthState(auth);
 
+  return (
+    <>
+      <section className="p-6">
+        {user ? <VideoMenu user={user}/> : <SignIn/> }
+      </section>
+    </>
+  )
+}
 function NotFound() {
   return (
     <>
@@ -81,17 +92,6 @@ function NotFound() {
           </div>
         </div>
       </div>
-    </>
-  )
-}
-
-function VideoUI() {
-  return (
-    <>
-
-      <h1 className="text-2xl font-bold transition-all hover:text-primaryBlue-primary">WIP</h1>
-      <p>We're working on it!</p>
-      <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
     </>
   )
 }
