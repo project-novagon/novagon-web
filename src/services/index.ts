@@ -14,6 +14,11 @@ interface UploadImage {
   img: File;
   uid: User["uid"];
 }
+
+interface uploadVideo {
+  vid: File;
+  uid: User["uid"];
+}
 /**
  * Uploads the image to firebase storage, and names the file uid_file.name
  * @param {UploadImage['img']} img The img File
@@ -48,7 +53,7 @@ export const fetchAllImages = async ():Promise<ListResult> => {
 export const uploadVideo = async ({
   vid,
   uid,
-}: UploadImage): Promise<UploadResult> => {
+}: uploadVideo): Promise<UploadResult> => {
   try {
     const imageName = `images/${uid}_${vid.name}`;
     const storageRef = ref(storage, imageName);
