@@ -24,11 +24,11 @@ const storage = getStorage(app);
 interface Props {
   user: User
 }
-export function ImageMenu({user}:Props) {
+export function videoMenu({user}:Props) {
 
   return (
     <>
-    <h2 className="text-2xl font-bold">Images</h2>
+    <h2 className="text-2xl font-bold">Videos</h2>
     <UploadImage user={user} />
     <ImageGrid/>
     </>

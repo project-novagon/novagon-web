@@ -45,3 +45,29 @@ export const fetchAllImages = async ():Promise<ListResult> => {
   }
 };
 
+export const uploadVideo = async ({
+  vid,
+  uid,
+}: UploadImage): Promise<UploadResult> => {
+  try {
+    const imageName = `images/${uid}_${vid.name}`;
+    const storageRef = ref(storage, imageName);
+    const snapshot = await uploadBytes(storageRef, vid);
+    return snapshot;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const fetchAllVideos = async ():Promise<ListResult> => {
+  try {
+    const images: string[] = [];
+    const storageFolderRef = ref(storage, "videos");
+    return await listAll(storageFolderRef);
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+
