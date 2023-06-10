@@ -17,30 +17,22 @@ export const UploadVideo = ({ user }: Props) => {
   const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
     if (vid) {
-      // Needs to check if the the file type is .png or .jpeg first
-      // To prevent someone from uploading another type of file
-      try {
-        // Uploads the image
-        const snapshot = await uploadVideo({ vid: vid, uid: uid });
-        // Clears the image from react's state
-        setVideo(null);
-        // Triggers the message
-        setUploadSuccesfuly(true);
-        console.log(snapshot);
-        console.log("Uploaded a blob or file!");
-      } catch (error) {
-        console.error(error);
+      const allowedTypes = ["image/jpeg", "image/png"];
+      if (allowedTypes.includes(vid.type)) {
+        try {
+          const snapshot = await uploadVideo({ vid, uid });
+          setVideo(null);
+          setUploadSuccesfuly(true);
+          console.log(snapshot);
+          console.log("Uploaded a blob or file!");
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        alert("Please select a PNG or JPG image.");
       }
     }
-    return;
   };
-  console.log(`User ID: ${uid}`)
-  console.log("%cStop!",
-  "color:red;font-family:system-ui;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
-  console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
-  "font-weight: 700;",
-  "scam."
-  )
 
   return (
     <div>
