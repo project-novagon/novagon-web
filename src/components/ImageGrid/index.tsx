@@ -19,7 +19,7 @@ export const ImageGrid = () => {
     getUrlsFromImages();
   }, []);
   return (
-    <div className="grid gap-2 md:grid-cols-4">
+    <div className="grid gap-1 md:grid-cols-4">
       {imgs
         ? imgs.map((img, index) => {
             return <img className="rounded" height={200} width={200} key={index} src={img} alt="img" loading="lazy"/>;
