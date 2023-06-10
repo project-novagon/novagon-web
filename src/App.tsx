@@ -1,6 +1,6 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { SignIn, SignOut } from "./components/AuthSys";
-import { MainMenu } from "./components/MainMenu";
+import { ImageMenu } from "./components/imageMenu";
 import { initializeApp } from "firebase/app";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline"
@@ -50,7 +50,7 @@ function Home() {
   return (
     <>
       <section className="p-6">
-        {user ? <MainMenu user={user} /> : <SignIn />}
+        {user ? <ImageMenu user={user} /> : <SignIn />}
       </section>
     </>
   );
