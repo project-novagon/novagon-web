@@ -83,10 +83,15 @@ interface SignOutProps {
 
 export function SignOut({ auth }: SignOutProps) {
   const [user] = useAuthState(auth);
-
   if (user) {
+    const displayName = user.displayName;
+    const photoURL = user.photoURL;
     return (
+      <div className="flex justify-center items-center space-x-4 rounded-full bg-zinc-800">
+      {displayName == null ? <p className="ml-6">Guest</p> : <p className="ml-6">{displayName}</p>}
+      {photoURL && <img className='rounded-full w-9 h-9' src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="pfp" />}
       <button onClick={() => auth.signOut()} className="px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700">Sign Out</button>
+      </div>
     );
   } else {
     return null;
