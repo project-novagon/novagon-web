@@ -14,6 +14,11 @@ interface UploadImage {
   img: File;
   uid: User["uid"];
 }
+
+interface uploadVideo {
+  vid: File;
+  uid: User["uid"];
+}
 /**
  * Uploads the image to firebase storage, and names the file uid_file.name
  * @param {UploadImage['img']} img The img File
@@ -44,4 +49,30 @@ export const fetchAllImages = async ():Promise<ListResult> => {
     throw error;
   }
 };
+
+export const uploadVideo = async ({
+  vid,
+  uid,
+}: uploadVideo): Promise<UploadResult> => {
+  try {
+    const imageName = `images/${uid}_${vid.name}`;
+    const storageRef = ref(storage, imageName);
+    const snapshot = await uploadBytes(storageRef, vid);
+    return snapshot;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const fetchAllVideos = async ():Promise<ListResult> => {
+  try {
+    const images: string[] = [];
+    const storageFolderRef = ref(storage, "videos");
+    return await listAll(storageFolderRef);
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 

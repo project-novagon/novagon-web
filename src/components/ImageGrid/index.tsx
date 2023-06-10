@@ -22,7 +22,7 @@ export const ImageGrid = () => {
     <div className="grid gap-1 md:grid-cols-4">
       {imgs
         ? imgs.map((img, index) => {
-            return <img className="rounded" height={200} width={200} key={index} src={img} alt="img" loading="lazy"/>;
+            return <img className="rounded" height={200} width={200} key={index} src={img} alt="Image" loading="lazy"/>;
           })
         : null}
     </div>

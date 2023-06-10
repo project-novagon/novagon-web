@@ -1,10 +1,11 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { SignIn, SignOut } from "./components/AuthSys";
-import { MainMenu } from "./components/MainMenu";
+import { ImageMenu } from "./components/mainMenu";
 import { initializeApp } from "firebase/app";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline"
 import { getAuth, Auth } from "firebase/auth";
+import { VideoMenu } from "./components/mainMenu";
 import "firebase/firestore";
 import "firebase/auth";
 import React from "react";
@@ -37,9 +38,9 @@ function App() {
       </header>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ImageUI />} />
           <Route path="/videos" element={<Videos />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat" element={<WorkInProgress/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
@@ -47,13 +48,13 @@ function App() {
   );
 }
 
-function Home() {
+function ImageUI() {
   const [user] = useAuthState(auth);
 
   return (
     <>
       <section className="p-6">
-        {user ? <MainMenu user={user} /> : <SignIn />}
+        {user ? <ImageMenu user={user} /> : <SignIn />}
       </section>
     </>
   );
@@ -68,18 +69,17 @@ function Videos() {
     </>
   );
 }
-
-function Chat() {
+function VideoUI() {
   const [user] = useAuthState(auth);
+
   return (
     <>
       <section className="p-6">
-        {user ? <p> wip </p> : <SignIn />}
+        {user ? <VideoMenu user={user}/> : <SignIn/> }
       </section>
     </>
-  );
+  )
 }
-
 function NotFound() {
   return (
     <>
@@ -98,14 +98,21 @@ function NotFound() {
     </>
   )
 }
-
-function VideoUI() {
+function WorkInProgress() {
   return (
     <>
-
-      <h1 className="text-2xl font-bold transition-all hover:text-primaryBlue-primary">WIP</h1>
-      <p>We're working on it!</p>
-      <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
+      <div className="flex items-center justify-center h-screen">
+        <div className="flex items-center space-x-3 text-center">
+          <div>
+            <QuestionMarkCircleIcon className="w-9" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">501</h1>
+            <p>Work in progress</p>
+            <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
