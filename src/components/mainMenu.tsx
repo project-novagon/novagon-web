@@ -5,8 +5,10 @@ import { v4 } from "uuid";
 import { useEffect, useState } from "react";
 import React from 'react';
 import { User } from "firebase/auth";
-import { UploadImage } from "./UploadImage";
+import { UploadVideo } from "./uploadVideo";
 import { ImageGrid } from "./ImageGrid";
+import { UploadImage } from "./UploadImage";
+import { videoGrid } from "./videoGrid";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6YpcLlowvaCVSPUfpxrflvdi1wqzwdDs",
@@ -25,6 +27,17 @@ interface Props {
   user: User
 }
 export function ImageMenu({user}:Props) {
+
+  return (
+    <>
+    <h2 className="text-2xl font-bold">Images</h2>
+    <UploadImage user={user} />
+    <ImageGrid/>
+    </>
+  );
+}
+
+export function videoMenu({user}:Props) {
 
   return (
     <>

@@ -4,7 +4,7 @@ import { uploadVideo } from "../../services";
 interface Props {
   user: User;
 }
-export const UploadImage = ({ user }: Props) => {
+export const UploadVideo = ({ user }: Props) => {
   const [vid, setVideo] = useState<File | null>(null);
   const { uid } = user;
   const [uploadSuccessfuly, setUploadSuccesfuly] = useState(false);

@@ -1,6 +1,6 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { SignIn, SignOut } from "./components/AuthSys";
-import { ImageMenu } from "./components/imageMenu";
+import { ImageMenu } from "./components/mainMenu";
 import { initializeApp } from "firebase/app";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline"
