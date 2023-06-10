@@ -24,7 +24,7 @@ const storage = getStorage(app);
 interface Props {
   user: User
 }
-export function videoMenu({user}:Props) {
+export function VideoMenu({user}:Props) {
 
   return (
     <>
