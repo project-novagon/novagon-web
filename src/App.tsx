@@ -40,7 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ImageUI />} />
           <Route path="/videos" element={<Videos />} />
-          <Route path="/chat" element={<h1>Wo</h1>} />
+          <Route path="/chat" element={<WorkInProgress/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
@@ -98,7 +98,7 @@ function NotFound() {
     </>
   )
 }
-function NotFound() {
+function WorkInProgress() {
   return (
     <>
       <div className="flex items-center justify-center h-screen">
@@ -107,8 +107,8 @@ function NotFound() {
             <QuestionMarkCircleIcon className="w-9" />
           </div>
           <div>
-            <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">404</h1>
-            <p>Not Found</p>
+            <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">501</h1>
+            <p>Work in progress</p>
             <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
           </div>
         </div>
