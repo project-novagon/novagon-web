@@ -17,7 +17,7 @@ export const UploadVideo = ({ user }: Props) => {
   const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
     if (vid) {
-      const allowedTypes = ["image/jpeg", "image/png"];
+      const allowedTypes = ["	video/mp4", "video/quicktime", "video/x-msvideo", "video/x-ms-wmv"];
       if (allowedTypes.includes(vid.type)) {
         try {
           const snapshot = await uploadVideo({ vid, uid });
@@ -29,7 +29,7 @@ export const UploadVideo = ({ user }: Props) => {
           console.error(error);
         }
       } else {
-        alert("Please select a PNG or JPG image.");
+        alert("Please select a .mp4, .mov, .avi, or .wmv video.");
       }
     }
   };
