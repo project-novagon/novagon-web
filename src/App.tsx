@@ -15,7 +15,8 @@ import { TOS } from "./pages/tos";
 
 // Initialize Firebase
 const auth = getAuth(app);
-
+// TODO: if done re-add this redirect rule:
+// /* /index.html 200
 console.log("%cStop!",
 "color:red;font-family:'Albert Sans', sans-serif;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
 console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
