@@ -17,7 +17,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        albertsans: "'Albert Sans', sans-serif"
+        albertsans: "'Albert Sans', sans-serif",
+        poppins:  "'Poppins', sans-serif"
       },
     },
   },

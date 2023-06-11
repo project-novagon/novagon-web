@@ -10,6 +10,7 @@ import "firebase/auth";
 import React from "react";
 import "./App.css";
 import { app } from "./firebase-config";
+import { TOS } from "./pages/tos";
 //// import { ChatRoom } from "./components/chat/chatRoom";
 
 // Initialize Firebase
@@ -37,6 +38,7 @@ function App() {
           <Route path="/videos" element={<Videos />} />
           <Route path="/chat" element={<WorkInProgress/>} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/tos" element={<TOS />} />
         </Routes>
       </BrowserRouter>
     </>

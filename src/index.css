@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html {
-  @apply h-screen bg-white dark:bg-zinc-800 dark:text-white font-albertsans;
+  @apply h-screen bg-white dark:bg-zinc-800 dark:text-white font-poppins;
+}
+
+h1, h2, h3, button {
+  @apply font-albertsans
 }
