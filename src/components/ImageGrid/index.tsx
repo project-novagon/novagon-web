@@ -1,8 +1,10 @@
-import { getDownloadURL, ref } from 'firebase/storage';
 import React, { useEffect, useState } from 'react';
 import { fetchAllImages } from '../../services';
 import { db } from '../../firebase-config';
 import { getDoc, doc } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getDownloadURL, ref } from 'firebase/storage';
+
 
 export const ImageGrid = () => {
   const [imgs, setImgs] = useState<string[]>([]);
@@ -25,30 +27,48 @@ export const ImageGrid = () => {
     try {
       const images = await fetchAllImages();
       const imageUrls: string[] = [];
-
+  
+      const auth = getAuth();
+      const user = auth.currentUser;
+  
+      if (!user) {
+        // Handle the case when the user is not authenticated
+        return;
+      }
+  
       for (const img of images.items) {
         const url = await getDownloadURL(ref(img));
         const fileName = img.name;
         const uid = fileName.substring(0, fileName.lastIndexOf('_'));
         const profileURL = await getProfileURL(uid);
         imageUrls.push(url);
-
+  
         setUsers((prevUsers) => ({
           ...prevUsers,
           [uid]: profileURL,
         }));
       }
-
+  
       setImgs(imageUrls);
     } catch (error) {
-      console.error('Error fetching images:', (error as Error).message);
+      console.error('Error fetching images:', error);
     }
   };
+  
 
   useEffect(() => {
-    getUrlsFromImages();
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        getUrlsFromImages();
+      } else {
+        // Handle the case when the user is not authenticated
+      }
+    });
+  
+    return () => unsubscribe();
   }, []);
-
+  
   return (
     <div className="grid gap-1 md:grid-cols-4">
       {imgs.map((img, index) => {
