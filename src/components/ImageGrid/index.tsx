@@ -30,9 +30,10 @@ export const ImageGrid = () => {
   
       const auth = getAuth();
       const user = auth.currentUser;
-  
+      console.log('User:', auth.currentUser);
       if (!user) {
         // Handle the case when the user is not authenticated
+        console.log('User is not authenticated.');
         return;
       }
   
@@ -48,12 +49,13 @@ export const ImageGrid = () => {
           [uid]: profileURL,
         }));
       }
-  
+      
       setImgs(imageUrls);
     } catch (error) {
       console.error('Error fetching images:', error);
     }
   };
+  
   
 
   useEffect(() => {
