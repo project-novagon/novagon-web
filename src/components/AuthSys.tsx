@@ -3,9 +3,9 @@ import { getAuth, signInAnonymously, signInWithPopup, GithubAuthProvider, Google
 import React from 'react';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { app } from "../firebase-config";
+import { auth } from "../firebase-config";
 
 // Initialize Firebase
-const auth = getAuth(app);
 
 export function SignIn() {
   const signInAsGuest = () => {
@@ -16,7 +16,11 @@ export function SignIn() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        if (errorCode === "auth/user-disabled") {
+          window.alert('Your account is disabled. Please contact support for assistance.');
+        } else {
+          console.log(errorCode, errorMessage);
+        }
       });
   };
 
@@ -33,9 +37,14 @@ export function SignIn() {
         // An error occurred during sign-in
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        if (errorCode === "auth/user-disabled") {
+          window.alert('Your account is disabled. Please contact support for assistance.');
+        } else {
+          console.log(errorCode, errorMessage);
+        }
       });
   };
+
   const signInWithGoogle = () => {
     const provider = new GoogleAuthProvider();
 
@@ -49,7 +58,11 @@ export function SignIn() {
         // An error occurred during sign-in
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        if (errorCode === "auth/user-disabled") {
+          window.alert('Your account is disabled. Please contact support for assistance.');
+        } else {
+          console.log(errorCode, errorMessage);
+        }
       });
   };
 
@@ -58,9 +71,9 @@ export function SignIn() {
       <h2 className="text-2xl font-bold">Welcome To <span className="text-transparent transition-all bg-clip-text bg-gradient-to-r from-primaryBlue-primary to-violet-900 ">Novagon Social</span></h2>
       <p className="font-mono">Log In and see what's happening!</p>
       <div className="flex flex-col items-center justify-center p-4 m-3 space-y-4 rounded-lg dark:bg-zinc-600 bg-zinc-300">
-      <button onClick={signInAsGuest} className="w-48 h-8 px-4 py-2 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">Sign in as guest</button>
-      <button onClick={signInWithGitHub} className="w-48 h-8 px-4 py-2 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">Sign in with GitHub</button>
-      <button onClick={signInWithGoogle} className="w-48 h-8 px-4 py-2 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">Sign in with Google</button>
+        <button onClick={signInAsGuest} className="w-48 h-8 px-4 py-2 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">Sign in as guest</button>
+        <button onClick={signInWithGitHub} className="w-48 h-8 px-4 py-2 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">Sign in with GitHub</button>
+        <button onClick={signInWithGoogle} className="w-48 h-8 px-4 py-2 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">Sign in with Google</button>
       </div>
     </div>
   );
@@ -78,9 +91,9 @@ export function SignOut({ auth }: SignOutProps) {
     const photoURL = user.photoURL;
     return (
       <div className="flex justify-center items-center space-x-4 rounded-full bg-zinc-800">
-      {displayName == null ? <p className="ml-6">Guest</p> : <p className="ml-6">{displayName}</p>}
-      {photoURL && <img className='rounded-full w-9 h-9' src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="pfp" />}
-      <button onClick={() => auth.signOut()} className="px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700">Sign Out</button>
+        {displayName == null ? <p className="ml-6">Guest</p> : <p className="ml-6">{displayName}</p>}
+        {photoURL && <img className='rounded-full w-9 h-9' src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="pfp" />}
+        <button onClick={() => auth.signOut()} className="px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700">Sign Out</button>
       </div>
     );
   } else {
