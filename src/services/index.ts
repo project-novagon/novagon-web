@@ -39,11 +39,9 @@ export const uploadImage = async ({
     throw error;
   }
 };
-
-export const fetchAllImages = async ():Promise<ListResult> => {
+export const fetchAllImages = async (): Promise<ListResult> => {
   try {
-    const images: string[] = [];
-    const storageFolderRef = ref(storage, "images");
+    const storageFolderRef = ref(storage, 'images');
     return await listAll(storageFolderRef);
   } catch (error) {
     console.error(error);
@@ -67,8 +65,7 @@ export const uploadVideo = async ({
 
 export const fetchAllVideos = async ():Promise<ListResult> => {
   try {
-    const images: string[] = [];
-    const storageFolderRef = ref(storage, "videos");
+    const storageFolderRef = ref(storage, 'videos');
     return await listAll(storageFolderRef);
   } catch (error) {
     console.error(error);
