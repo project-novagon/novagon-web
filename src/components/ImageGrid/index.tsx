@@ -39,25 +39,27 @@ export const ImageGrid = () => {
   }, []);
 
   return (
-    <div className="grid gap-1 md:grid-cols-4">
-      {imgs &&
-        imgs.map((img, index) => {
-          const uid = img.split("/")[1].split("_")[0];
-          const username = users[uid] || "Guest";
-          return (
-            <div key={index}>
-              <p>{username}</p>
-              <img
-                className="rounded"
-                height={200}
-                width={200}
-                src={img}
-                alt="Image"
-                loading="lazy"
-              />
-            </div>
-          );
-        })}
-    </div>
+    <div className="grid gap-5 md:grid-cols-4 lg:grid-cols-6 sm:grid-cols-2">
+    {imgs &&
+  imgs.map((img, index) => {
+    const uid = img.split("/")[1].split("_")[0];
+    const username = users[uid] || uid; // Use uid as the fallback value
+    return (
+      <div key={index} className="dark:bg-zinc-700 rounded-lg shadow-xl">
+        <p>{username}</p>
+        <img
+          className="rounded"
+          height={200}
+          width={200}
+          src={img}
+          alt="Image"
+          loading="lazy"
+        />
+      </div>
+    );
+  })}
+  </div>
+  
+  
   );
 };

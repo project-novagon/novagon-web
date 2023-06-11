@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { initializeApp } from "firebase/app";
-import { getDownloadURL, getStorage, listAll, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, getStorage, listAll, ref, uploadBytes, getMetadata } from "firebase/storage";
 import { v4 } from "uuid";
 import { useEffect, useState } from "react";
 import React from 'react';
@@ -14,13 +14,13 @@ import { app } from "../firebase-config";
 interface Props {
   user: User
 }
-function ImageMenu({user}: Props) {
 
+function ImageMenu({ user }: Props) {
   return (
     <>
-    <h2 className="text-2xl font-bold">Images</h2>
-    <UploadImage user={user} />
-    <ImageGrid/>
+      <h2 className="text-2xl font-bold">Images</h2>
+      <UploadImage user={user} />
+      <ImageGrid />
     </>
   );
 }
@@ -33,7 +33,6 @@ function VideoMenu({ user }: Props) {
       <VideoGrid />
     </>
   );
-};
+}
 
-export { VideoMenu }
-export { ImageMenu }
+export { VideoMenu, ImageMenu };
