@@ -78,6 +78,7 @@ export function SignIn() {
         <button onClick={signInWithGitHub} className="w-48 h-8 px-4 py-2 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">Sign in with GitHub</button>
         <button onClick={signInWithGoogle} className="w-48 h-8 px-4 py-2 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">Sign in with Google</button>
       </div>
+      <p>By logging in, you automatically agree to the <a href="./tos" className="underline">ToS (Terms of Service)</a>.</p>
     </div>
     </>
   );
@@ -127,7 +128,7 @@ export function BannedPopup({ isBanned, onClose }: BannedPopupProps) {
         <div className="dark:bg-zinc-800 bg-zinc-300 rounded-3xl p-4">
         <p>Hello. Your account has been banned.</p>
         <p>Reason: Unknown.</p>
-        <p>If you think its a mistake, or have any questions, <a href="mailto:contactnovagon@gmail.com">Contact Us.</a></p>
+        <p>If you think its a mistake, or have any questions, <a href="mailto:contactnovagon@gmail.com" className="underline">Contact Us.</a></p>
         </div>
 
       </div>
