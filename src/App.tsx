@@ -39,6 +39,7 @@ function App() {
           <Route path="/chat" element={<WorkInProgress/>} />
           <Route path="*" element={<NotFound />} />
           <Route path="/tos" element={<TOS />} />
+          <Route path="/maintenance" element={<Maintenance/>} />
         </Routes>
       </BrowserRouter>
     </>
@@ -111,6 +112,23 @@ function WorkInProgress() {
         </div>
       </div>
     </>
+  )
+}
+function Maintenance() { 
+  return(
+    <>
+    <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center space-x-3 text-center">
+        <div>
+          <QuestionMarkCircleIcon className="w-9" />
+        </div>
+        <div>
+          <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">503</h1>
+          <p>Hey There! Novagon social is temporarely down for maintenance.</p>
+        </div>
+      </div>
+    </div>
+  </>
   )
 }
 export default App;
