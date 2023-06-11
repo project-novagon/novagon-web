@@ -1,103 +1,63 @@
-import React, { useEffect, useState } from 'react';
-import { fetchAllImages } from '../../services';
-import { db } from '../../firebase-config';
-import { getDoc, doc } from 'firebase/firestore';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDownloadURL, ref } from 'firebase/storage';
-
+import { getDownloadURL } from "firebase/storage";
+import { collection, doc, getDocs } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { fetchAllImages } from "../../services";
+import { db } from "../../firebase-config"; // Import the db instance
 
 export const ImageGrid = () => {
   const [imgs, setImgs] = useState<string[]>([]);
-  const [users, setUsers] = useState<Record<string, string>>({});
+  const [users, setUsers] = useState<{ [key: string]: string }>({});
 
-  const getProfileURL = async (uid: string) => {
-    const userDocRef = doc(db, 'users', uid);
-    const userDocSnapshot = await getDoc(userDocRef);
-    if (userDocSnapshot.exists()) {
-      const userData = userDocSnapshot.data();
-      if (userData) {
-        const profileURL = userData.photoURL || '';
-        return profileURL;
-      }
+  const getUsersFromFirestore = async () => {
+    try {
+      const usersRef = collection(db, "users");
+      const usersSnapshot = await getDocs(usersRef);
+      const usersData = usersSnapshot.docs.reduce((result, doc) => {
+        return { ...result, [doc.id]: doc.data().username };
+      }, {});
+      setUsers(usersData);
+    } catch (error) {
+      console.error(error);
     }
-    return '';
   };
 
   const getUrlsFromImages = async () => {
     try {
       const images = await fetchAllImages();
-      const imageUrls: string[] = [];
-  
-      const auth = getAuth();
-      const user = auth.currentUser;
-      console.log('User:', auth.currentUser);
-      if (!user) {
-        // Handle the case when the user is not authenticated
-        console.log('User is not authenticated.');
-        return;
-      }
-  
-      for (const img of images.items) {
-        const url = await getDownloadURL(ref(img));
-        const fileName = img.name;
-        const uid = fileName.substring(0, fileName.lastIndexOf('_'));
-        const profileURL = await getProfileURL(uid);
-        imageUrls.push(url);
-  
-        setUsers((prevUsers) => ({
-          ...prevUsers,
-          [uid]: profileURL,
-        }));
-      }
-      
-      setImgs(imageUrls);
+      images.items.forEach(async (img) => {
+        const url = await getDownloadURL(img);
+        setImgs((value) => [...value, url]);
+      });
     } catch (error) {
-      console.error('Error fetching images:', error);
+      console.error(error);
     }
   };
-  
-  
 
   useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        getUrlsFromImages();
-      } else {
-        // Handle the case when the user is not authenticated
-      }
-    });
-  
-    return () => unsubscribe();
+    getUsersFromFirestore();
+    getUrlsFromImages();
   }, []);
-  
+
   return (
     <div className="grid gap-1 md:grid-cols-4">
-      {imgs.map((img, index) => {
-        const fileName = img.substring(img.lastIndexOf('/') + 1);
-        const uid = fileName.substring(0, fileName.lastIndexOf('_'));
-        const profileURL = users[uid];
-        return (
-          <div key={index}>
-            <p>{uid}</p>
-            <img
-              className="rounded"
-              height={200}
-              width={200}
-              src={img}
-              alt="Image"
-              loading="lazy"
-            />
-            {profileURL && (
+      {imgs &&
+        imgs.map((img, index) => {
+          const uid = img.split("/")[1].split("_")[0];
+          const username = users[uid] || "Guest";
+          return (
+            <div key={index}>
+              <p>{username}</p>
               <img
-                className="rounded-full w-9 h-9"
-                src={profileURL}
-                alt="Profile"
+                className="rounded"
+                height={200}
+                width={200}
+                src={img}
+                alt="Image"
+                loading="lazy"
               />
-            )}
-          </div>
-        );
-      })}
+            </div>
+          );
+        })}
     </div>
   );
 };
