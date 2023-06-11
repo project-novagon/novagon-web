@@ -94,7 +94,7 @@ export function SignOut({ auth }: SignOutProps) {
     const displayName = user.displayName;
     const photoURL = user.photoURL;
     return (
-      <div className="flex justify-center items-center space-x-4 rounded-full bg-zinc-800">
+      <div className="flex justify-center items-center space-x-4 rounded-full dark:bg-zinc-800 bg-zinc-300">
         {displayName == null ? <p className="ml-6">Guest</p> : <p className="ml-6">{displayName}</p>}
         {photoURL && <img className='rounded-full w-9 h-9' src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="pfp" />}
         <button onClick={() => auth.signOut()} className="px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700">Sign Out</button>
@@ -118,13 +118,13 @@ export function BannedPopup({ isBanned, onClose }: BannedPopupProps) {
   return (
     <div className="fixed z-50 left-0 top-0 w-full h-full flex sm:items-center sm:p-0 p-4 items-end justify-center bg-black bg-opacity-50 backdrop-blur-lg">
       <div className="space-y-2">
-        <div className="flex items-center justify-between dark:bg-zinc-800 rounded-full space-x-16 p-2">
+        <div className="flex items-center justify-between dark:bg-zinc-800 bg-zinc-300 rounded-full space-x-16 p-2">
         <h2 className="text-2xl font-bold self-center ml-2">Account Banned</h2>
           <button onClick={onClose} className="w-16 h-8 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">
             Close
           </button>
         </div>
-        <div className="dark:bg-zinc-800 rounded-3xl p-4">
+        <div className="dark:bg-zinc-800 bg-zinc-300 rounded-3xl p-4">
         <p>Hello. Your account has been banned.</p>
         <p>Reason: Unknown.</p>
         <p>If you think its a mistake, or have any questions, <a href="mailto:contactnovagon@gmail.com">Contact Us.</a></p>
