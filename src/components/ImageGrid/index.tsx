@@ -41,7 +41,7 @@ export const ImageGrid = () => {
 
       setImgs(imageUrls);
     } catch (error) {
-      console.error('Error fetching images:', error);
+      console.error('Error fetching images:', (error as Error).message);
     }
   };
 
