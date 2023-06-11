@@ -3,20 +3,17 @@ import { SignIn, SignOut } from "./components/AuthSys";
 import { ImageMenu } from "./components/mainMenu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline"
-import { getAuth, Auth } from "firebase/auth";
 import { VideoMenu } from "./components/mainMenu";
 import "firebase/firestore";
 import "firebase/auth";
 import React from "react";
 import "./App.css";
-import { app } from "./firebase-config";
 import { TOS } from "./pages/tos";
+import { auth } from "./firebase-config";
 //// import { ChatRoom } from "./components/chat/chatRoom";
 
 // Initialize Firebase
-const auth = getAuth(app);
-// TODO: if done re-add this redirect rule:
-// /* /index.html 200
+// TODO: fix this shit
 console.log("%cStop!",
 "color:red;font-family:'Albert Sans', sans-serif;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
 console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
