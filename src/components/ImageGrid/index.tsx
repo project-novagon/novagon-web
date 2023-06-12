@@ -1,6 +1,7 @@
+import { Auth } from 'firebase/auth';
 import { getDownloadURL } from "firebase/storage";
 import { fetchAllImages } from "../../services";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { User, getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { auth } from "../../firebase-config";
 
@@ -27,19 +28,54 @@ export const ImageGrid = () => {
         console.error(error);
       }
     };
-
+  
     getUrlsFromImages();
   }, []);
+  
+// ...
 
-  onAuthStateChanged(auth, (user) => {
+useEffect(() => {
+  const handleAuthStateChange = async (user: User | null) => {
     if (user) {
-      const userID = user.uid;
-      const username = user.displayName || "Unknown User";
-      const photoURL = user.photoURL || "";
-      setUsers({ [userID]: { username, photoURL } });
-      console.log(username, userID, photoURL);
+      const { displayName, photoURL } = await getUserProfile(user); // Assuming you have a function to fetch the user profile
+      const username = displayName || 'Unknown User';
+      for (const img of imgs) {
+        const userID = extractUserIDFromImageURL(img); // Assuming `img` is the URL of the image
+        setUsers((prevUsers) => {
+          return { ...prevUsers, [userID]: { username, photoURL } };
+        });
+        console.log(username, userID, photoURL);
+      }
     }
-  });
+  };
+
+  const auth: Auth = getAuth(); // Assuming you have the Firebase Auth instance initialized
+
+  const unsubscribe = onAuthStateChanged(auth, handleAuthStateChange);
+
+  return () => unsubscribe();
+}, [imgs]);
+  
+    const unsubscribe = onAuthStateChanged(auth, handleAuthStateChange);
+  
+    return () => unsubscribe();
+  }, [imgs]);
+  
+  const extractUserIDFromImageURL = (imageUrl: string) => {
+    // Assuming the image URL has the format: {userID}_{imageName}.png
+    const parts = imageUrl.split("/");
+    if (parts.length > 1) {
+      const filename = parts.pop();
+      if (filename) {
+        const userID = filename.split("_")[0];
+        return userID;
+      }
+    }
+    return null;
+  };
+  
+
+  
   
   
 
