@@ -58,15 +58,18 @@ export const ImageGrid = () => {
                 <div className="flex items-center justify-between p-2">
                 {username && <p>By {username}</p>} 
                 {photoURL && <img src={photoURL} alt={username} className="h-8 rounded-full"/>}
+                
                 </div>
-                <img
-                  className="rounded"
-                  height={200}
-                  width={200}
-                  src={img}
-                  alt="Image"
-                  loading="lazy"
-                />
+                <div className="w-full flex items-center justify-center">
+                  <img
+                    className="rounded"
+                    height={200}
+                    width={200}
+                    src={img}
+                    alt="Image"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
             );
