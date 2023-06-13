@@ -11,6 +11,7 @@ import "./App.css";
 import { TOS } from "./pages/tos";
 import { auth } from "./firebase-config";
 import { NvgUI } from "./pages/novagon_ui";
+import { useState } from "react";
 //// import { ChatRoom } from "./components/chat/chatRoom";
 
 // Initialize Firebase
@@ -22,15 +23,29 @@ console.log("This is a Browser Featuer made for Developers. \nif someone asks yo
 "scam."
 )
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
       <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
         <div className="flex items-center space-x-4">
+          <button onClick={() => setMenuOpen(!menuOpen)}>
           <img src="https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%403x.png" alt="" className="w-16 rounded-lg" />
-          <h1 className='text-xl font-bold font-albertsans'>The Novagon App</h1>
+          </button>
+          <h1 className='text-xl font-bold font-albertsans md:block hidden'>The Novagon App</h1>
         </div>
         <SignOut auth={auth} />
       </header>
+      <div className="flex">
+      <div className={`md:w-96 w-screen h-screen dark:bg-gray-secondary p-4 ${menuOpen ? 'block' : 'hidden'}`}>
+        <h1>MENU</h1>
+
+        <ul>
+          <li><a href="/videos">Videos</a></li>
+          <li><a href="/chat">Chat</a></li>
+          <li><a href="/tos">TOS</a></li>
+          <li><a href="/ui">UI</a></li>
+        </ul>
+      </div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ImageUI />} />
@@ -42,6 +57,7 @@ function App() {
           <Route path="/ui" element={<NvgUI/>} />
         </Routes>
       </BrowserRouter>
+      </div>
     </>
   );
 }
