@@ -2,11 +2,11 @@ function TOS() {
     return (
         <div className="p-4">
         <div className="flex justify-between">
-        <h1 className="font-bold text-2xl">Novagon Social Terms Of Service</h1>
+        <h1 className="font-bold text-2xl">the novagon app Terms Of Service</h1>
         <a href="/" className="underline">go back</a>
         </div>
         <h2 className="text-xl">1. Rules</h2>
-        <p>please follow these rules to make novagon social a welcoming community</p>
+        <p>please follow these rules to make the novagon app a welcoming community</p>
         <ul className="list-disc list-inside">
             <li>No sexual content</li>
             <li>No Violent Content</li>

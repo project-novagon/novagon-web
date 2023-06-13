@@ -124,7 +124,7 @@ function Maintenance() {
         </div>
         <div>
           <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">503</h1>
-          <p>Hey There! Novagon social is temporarely down for maintenance.</p>
+          <p>Hey There! The novagon app is temporarely down for maintenance.</p>
         </div>
       </div>
     </div>
