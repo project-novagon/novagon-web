@@ -26,7 +26,7 @@ function App() {
     <>
       <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
         <div className="flex items-center space-x-4">
-          <img src="https://novagoncdn.netlify.app/img/nvgweb/NovoChat%20Logo%402x.png" alt="" width="48px" />
+          <img src="https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%403x.png" alt="" className="w-16 rounded-lg" />
           <h1 className='text-xl font-bold font-albertsans'>The Novagon App</h1>
         </div>
         <SignOut auth={auth} />

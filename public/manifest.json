@@ -1,21 +1,21 @@
 {
-  "short_name": "Novagon Social",
-  "name": "The Social Media Of the future",
+  "short_name": "the novagon app",
+  "name": "the novagon app",
   "icons": [
     {
-      "src": "https://novagoncdn.netlify.app/img/Social.svg",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo.png",
+      "sizes": "480x480",
       "type": "image/x-icon"
     },
     {
-      "src": "https://novagoncdn.netlify.app/img/Social.svg",
+      "src": "https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%402x.png",
       "type": "image/svg",
-      "sizes": "192x192"
+      "sizes": "960x960"
     },
     {
-      "src": "https://novagoncdn.netlify.app/img/Social.svg",
+      "src": "https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%403x.png",
       "type": "image/svg",
-      "sizes": "512x512"
+      "sizes": "1440x1440"
     }
   ],
   "start_url": ".",
