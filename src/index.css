@@ -7,5 +7,5 @@ html {
 }
 
 h1, h2, h3, button {
-  @apply font-albertsans
+  @apply font-albertsans font-bold
 }
