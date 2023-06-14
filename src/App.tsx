@@ -59,9 +59,9 @@ interface appMenuProps {
 }
 function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
   const [user] = useAuthState(auth);
-  //// if (!appMenuOpen) {
-  //// return null;
-  //// }
+   if (!appMenuOpen) {
+   return null;
+   }
   return (
     <div className="fixed z-50 w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg flex md:justify-start md:items-start justify-center items-center">
       <div className="dark:bg-gray-secondary bg-white h-screen m-4 md:w-96 w-screen rounded-lg p-4 space-y-4">
