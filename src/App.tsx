@@ -23,29 +23,21 @@ console.log("This is a Browser Featuer made for Developers. \nif someone asks yo
 "scam."
 )
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [appMenuOpen, setAppMenuOpen] = useState(false);
   return (
     <>
       <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
         <div className="flex items-center space-x-4">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
+          <button onClick={(e) =>{  
+            e.preventDefault();
+            setAppMenuOpen(!appMenuOpen) }}>
           <img src="https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%403x.png" alt="" className="w-16 rounded-lg" />
           </button>
           <h1 className='text-xl font-bold font-albertsans md:block hidden'>The Novagon App</h1>
         </div>
         <SignOut auth={auth} />
       </header>
-      <div className="flex">
-      <div className={`md:w-96 w-screen h-screen dark:bg-gray-secondary p-4 ${menuOpen ? 'block' : 'hidden'}`}>
-        <h1>MENU</h1>
-
-        <ul>
-          <li><a href="/videos">Videos</a></li>
-          <li><a href="/chat">Chat</a></li>
-          <li><a href="/tos">TOS</a></li>
-          <li><a href="/ui">UI</a></li>
-        </ul>
-      </div>
+      <AppMenu appMenuOpen={appMenuOpen} closeAppMenu={() => setAppMenuOpen(false)}/>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ImageUI />} />
@@ -57,11 +49,38 @@ function App() {
           <Route path="/ui" element={<NvgUI/>} />
         </Routes>
       </BrowserRouter>
-      </div>
     </>
   );
 }
 
+interface appMenuProps {
+  appMenuOpen: Boolean,
+  closeAppMenu: () => void
+}
+function AppMenu({appMenuOpen, closeAppMenu}: appMenuProps){
+  if (!appMenuOpen) {
+    return null;
+  }
+
+  return (
+    <div className="fixed z-50 left-0 top-0 w-full h-full flex sm:items-center sm:p-0 p-4 items-end justify-center bg-black bg-opacity-50 backdrop-blur-lg">
+    <div className="space-y-2">
+      <div className="flex items-center justify-between dark:bg-zinc-800 bg-zinc-300 rounded-full space-x-16 p-2">
+      <h2 className="text-2xl font-bold self-center ml-2">Account Banned</h2>
+        <button onClick={closeAppMenu} className="w-16 h-8 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">
+          Close
+        </button>
+      </div>
+      <div className="dark:bg-zinc-800 bg-zinc-300 rounded-3xl p-4">
+      <p>Hello. Your account has been banned.</p>
+      <p>Reason: Unknown.</p>
+      <p>If you think its a mistake, or have any questions, <a href="mailto:contactnovagon@gmail.com" className="underline">Contact Us.</a></p>
+      </div>
+
+    </div>
+  </div>
+  )
+}
 function ImageUI() {
   const [user] = useAuthState(auth);
 
