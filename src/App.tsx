@@ -28,9 +28,8 @@ function App() {
     <>
       <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
         <div className="flex items-center space-x-4">
-          <button onClick={(e) =>{  
-            e.preventDefault();
-            setAppMenuOpen(!appMenuOpen) }}>
+          <button onClick={() =>{  
+            setAppMenuOpen(appMenuOpen => !appMenuOpen) }}>
           <img src="https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%403x.png" alt="" className="w-16 rounded-lg" />
           </button>
           <h1 className='text-xl font-bold font-albertsans md:block hidden'>The Novagon App</h1>
