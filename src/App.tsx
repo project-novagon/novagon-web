@@ -64,7 +64,7 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
 
   return (
     <div className="fixed z-50 w-full h-full flex items-center sm:p-0 p-4 justify-start bg-black bg-opacity-50 backdrop-blur-lg">
-      <div>
+      <div className="dark:bg-gray-secondary md:w-32 w-full">
         <button onClick={closeAppMenu} className="w-16 h-8 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">
           Close
         </button>
