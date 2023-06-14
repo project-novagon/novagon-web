@@ -63,7 +63,6 @@ function AppMenu({appMenuOpen, closeAppMenu}: appMenuProps){
 
   return (
     <div className="fixed z-50 left-0 top-0 w-full h-full flex sm:items-center sm:p-0 p-4 items-end justify-center bg-black bg-opacity-50 backdrop-blur-lg">
-    <div className="space-y-2">
       <div className="flex items-center justify-between dark:bg-zinc-800 bg-zinc-300 rounded-full space-x-16 p-2">
       <h2 className="text-2xl font-bold self-center ml-2">Account Banned</h2>
         <button onClick={closeAppMenu} className="w-16 h-8 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">
@@ -77,7 +76,6 @@ function AppMenu({appMenuOpen, closeAppMenu}: appMenuProps){
       </div>
 
     </div>
-  </div>
   )
 }
 function ImageUI() {
