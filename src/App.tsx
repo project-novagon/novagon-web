@@ -7,11 +7,11 @@ import { VideoMenu } from "./components/mainMenu";
 import "firebase/firestore";
 import "firebase/auth";
 import React from "react";
-import "./App.css";
 import { TOS } from "./pages/tos";
 import { auth } from "./firebase-config";
 import { NvgUI } from "./pages/novagon_ui";
 import { useState } from "react";
+import { XMarkIcon } from '@heroicons/react/24/outline'
 //// import { ChatRoom } from "./components/chat/chatRoom";
 
 // Initialize Firebase
@@ -42,7 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ImageUI />} />
           <Route path="/videos" element={<Videos />} />
-          <Route path="/chat" element={<WorkInProgress />} />
+          <Route path="/wip" element={<WorkInProgress />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/tos" element={<TOS />} />
           <Route path="/maintenance" element={<Maintenance />} />
@@ -63,11 +63,19 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
   }
 
   return (
-    <div className="fixed z-50 w-full h-full flex items-center sm:p-0 p-4 justify-start bg-black bg-opacity-50 backdrop-blur-lg">
-      <div className="dark:bg-gray-secondary md:w-32 w-full">
-        <button onClick={closeAppMenu} className="w-16 h-8 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">
-          Close
+    <div className="fixed z-50 w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg flex md:justify-start md:items-start justify-center items-center">
+      <div className="dark:bg-gray-secondary bg-white h-screen m-4 md:w-96 w-screen rounded-lg p-4 space-y-4">
+        <button onClick={closeAppMenu}>
+        <XMarkIcon className="w-8 hover:stroke-primaryBlue-primary hover:stroke-2 stroke-1 transition"/>
         </button>
+        <h4 className="uppercase">menu</h4>
+        <div className="block space-y-2">
+          <a href="/" className="block">Images</a>
+          <a href="/videos" className="block">Videos</a>
+          <a href="/wip" className="block"> [WIP] Chat</a>
+          <a href="/wip" className="md:hidden block">[WIP] QuiShots</a>
+          <a href="/wip" className="block">[WIP]You</a>
+        </div>
       </div>
     </div>
   )
