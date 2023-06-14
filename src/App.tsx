@@ -62,7 +62,7 @@ function AppMenu({appMenuOpen, closeAppMenu}: appMenuProps){
   }
 
   return (
-    <div className="fixed z-50 left-0 top-0 w-full h-full flex sm:items-center sm:p-0 p-4 items-end justify-center bg-black bg-opacity-50 backdrop-blur-lg">
+    <div className="fixed z-50 w-full h-full flex sm:items-center sm:p-0 p-4 items-end justify-center bg-black bg-opacity-50 backdrop-blur-lg">
     <div className="space-y-2">
       <div className="flex items-center justify-between dark:bg-zinc-800 bg-zinc-300 rounded-full space-x-16 p-2">
       <h2 className="text-2xl font-bold self-center ml-2">Account Banned</h2>
