@@ -58,17 +58,18 @@ interface appMenuProps {
   closeAppMenu: () => void
 }
 function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
-  if (!appMenuOpen) {
-    return null;
-  }
-
+  const [user] = useAuthState(auth);
+  //// if (!appMenuOpen) {
+  //// return null;
+  //// }
   return (
     <div className="fixed z-50 w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg flex md:justify-start md:items-start justify-center items-center">
       <div className="dark:bg-gray-secondary bg-white h-screen m-4 md:w-96 w-screen rounded-lg p-4 space-y-4">
         <button onClick={closeAppMenu}>
-        <XMarkIcon className="w-8 hover:stroke-primaryBlue-primary hover:stroke-2 stroke-1 transition"/>
+          <XMarkIcon className="w-8 hover:stroke-primaryBlue-primary hover:stroke-2 stroke-1 transition" />
         </button>
-        <h4 className="uppercase">menu</h4>
+        {user ?
+          <h1 className="items-center flex gap-1 text-3xl">Hello, <div className="inline-flex justify-center items-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Photo" className="w-8 h-8 rounded-full "/>}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
         <div className="block space-y-2">
           <a href="/" className="block">Images</a>
           <a href="/videos" className="block">Videos</a>
