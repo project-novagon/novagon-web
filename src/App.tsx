@@ -77,7 +77,6 @@ function AppMenu({appMenuOpen, closeAppMenu}: appMenuProps){
       </div>
 
     </div>
-  </div>
   )
 }
 function ImageUI() {
