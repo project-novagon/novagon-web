@@ -37,7 +37,6 @@ export const ImageGrid = () => {
       const username = user.displayName || "Unknown User";
       const photoURL = user.photoURL || "";
       setUsers({ [userID]: { username, photoURL } });
-      console.log(username, userID, photoURL);
     }
   });
   

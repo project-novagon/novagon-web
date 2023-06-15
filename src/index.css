@@ -9,3 +9,7 @@ html {
 h1, h2, h3, button {
   @apply font-albertsans font-bold
 }
+
+a {
+  @apply hover:text-primaryBlue-primary transition-all
+}
