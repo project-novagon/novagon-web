@@ -77,7 +77,7 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
           <a href="/videos" className="block">Videos</a>
           <a href="/wip" className="block"> [WIP] Chat</a>
           <a href="/wip" className="md:hidden block">[WIP] QuiShots</a>
-          <a href="/profile" className="block">[WIP]You</a>
+          <a href="/profile" className="block">You</a>
         </div>
       </div>
     </div>
