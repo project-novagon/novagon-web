@@ -12,6 +12,7 @@ import { auth } from "./firebase-config";
 import { NvgUI } from "./pages/novagon_ui";
 import { useState } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { Profile } from "./pages/profile";
 //// import { ChatRoom } from "./components/chat/chatRoom";
 
 // Initialize Firebase
@@ -47,6 +48,7 @@ function App() {
           <Route path="/tos" element={<TOS />} />
           <Route path="/maintenance" element={<Maintenance />} />
           <Route path="/ui" element={<NvgUI />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </>
@@ -75,7 +77,7 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
           <a href="/videos" className="block">Videos</a>
           <a href="/wip" className="block"> [WIP] Chat</a>
           <a href="/wip" className="md:hidden block">[WIP] QuiShots</a>
-          <a href="/wip" className="block">[WIP]You</a>
+          <a href="/profile" className="block">[WIP]You</a>
         </div>
       </div>
     </div>
@@ -88,6 +90,17 @@ function ImageUI() {
     <>
       <section className="p-6">
         {user ? <ImageMenu user={user} /> : <SignIn />}
+      </section>
+    </>
+  );
+}
+function ProfileInit() {
+  const [user] = useAuthState(auth);
+
+  return (
+    <>
+      <section className="p-6">
+        {user ? <Profile /> : <SignIn />}
       </section>
     </>
   );
