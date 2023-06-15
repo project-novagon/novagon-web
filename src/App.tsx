@@ -33,7 +33,7 @@ function App() {
           }}>
             <img src="https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%403x.png" alt="" className="w-16 rounded-lg" />
           </button>
-          <h1 className='text-xl font-bold font-albertsans md:block hidden'>The Novagon App</h1>
+          <h1 className='text-xl font-bold font-albertsans md:block hidden'>Novagon Web</h1>
         </div>
         <SignOut auth={auth} />
       </header>
@@ -159,7 +159,7 @@ function Maintenance() {
           </div>
           <div>
             <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">503</h1>
-            <p>Hey There! The novagon app is temporarely down for maintenance.</p>
+            <p>Hey There! Novagon Web is temporarely down for maintenance.</p>
           </div>
         </div>
       </div>
