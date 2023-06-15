@@ -48,7 +48,7 @@ function App() {
           <Route path="/tos" element={<TOS />} />
           <Route path="/maintenance" element={<Maintenance />} />
           <Route path="/ui" element={<NvgUI />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<ProfileInit />} />
         </Routes>
       </BrowserRouter>
     </>
