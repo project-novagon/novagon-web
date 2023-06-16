@@ -97,7 +97,7 @@ export function SignOut({ auth }: SignOutProps) {
     return (
       <div className="flex justify-center items-center space-x-4 rounded-full dark:bg-zinc-800 bg-zinc-300">
         {displayName == null ? <p className="ml-6">Guest</p> : <p className="ml-6">{displayName}</p>}
-        {photoURL && <img className='rounded-full w-9 h-9' src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="pfp" />}
+        {photoURL && <img className='rounded-full w-9 h-9' src={photoURL || 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="pfp" />}
         <button onClick={() => auth.signOut()} className="px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700">Sign Out</button>
       </div>
     );
