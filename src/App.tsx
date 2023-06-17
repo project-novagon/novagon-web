@@ -32,7 +32,7 @@ function App() {
           <button onClick={() => {
             setAppMenuOpen(appMenuOpen => !appMenuOpen)
           }}>
-            <img src="https://novagoncdn.netlify.app/logo/nvgeb/Novagon%20Web%403x.png" alt="" className="w-16 rounded-lg" />
+            <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="" className="w-16 rounded-lg" />
           </button>
           <h1 className='text-xl font-bold font-albertsans md:block hidden'>Novagon Web</h1>
         </div>
