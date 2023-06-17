@@ -1,5 +1,5 @@
 import { auth, db } from "../firebase-config";
-import { doc, getDoc, Timestamp, collection, serverTimestamp, query, orderBy, DocumentData, Query } from "firebase/firestore";
+import { doc, getDoc, Timestamp, collection, serverTimestamp, query, orderBy, DocumentData, Query, addDoc, CollectionReference } from "firebase/firestore";
 import { User } from "firebase/auth";
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 import { useState } from "react";
@@ -38,24 +38,27 @@ function ChatMessage(props: ChatMessageProps) {
   }
 
   function ChatRoom() {
-    const publicChatRef = collection(db, 'messages');
-    const listAllImages = query(publicChatRef, orderBy("sendDate"))
-  
-    const [messages] = useCollectionData<Message>(listAllImages, { idField: 'id' });
+
+    const publicChatRef = collection(db, 'messages') as CollectionReference<Message>;
+
+    const listAllMessages = query(publicChatRef, orderBy('sendDate')) as Query<Message>;
+
+    const [messages] = useCollectionData<Message>(listAllMessages);
+
     const [formValue, setFormValue] = useState('');
   
     const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
   
-      const { uid, photoURL, displayName } = auth.currentUser || {};
-  
-      await publicChatRef.add({
-        text: formValue,
-        sendDate: serverTimestamp(),
-        uid,
-        photoURL,
-        displayName,
-      });
+  const { uid, photoURL, displayName } = auth.currentUser || {};
+
+  await addDoc(publicChatRef, {
+    text: formValue,
+    sendDate: serverTimestamp(),
+    uid,
+    photoURL,
+    displayName,
+  });
   
       setFormValue('');
     };
