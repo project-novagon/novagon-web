@@ -3,17 +3,17 @@
   "name": "Novagon Web",
   "icons": [
     {
-      "src": "https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo.png",
+      "src": "https://novagoncdn.netlify.app/logo/nvgeb/Novagon%20Web.png",
       "sizes": "480x480",
       "type": "image/x-icon"
     },
     {
-      "src": "https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%402x.png",
+      "src": "https://novagoncdn.netlify.app/logo/nvgeb/Novagon%20Web%402x.png",
       "type": "image/svg",
       "sizes": "960x960"
     },
     {
-      "src": "https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%403x.png",
+      "src": "https://novagoncdn.netlify.app/logo/nvgeb/Novagon%20Web%403x.png",
       "type": "image/svg",
       "sizes": "1440x1440"
     }
