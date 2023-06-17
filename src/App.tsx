@@ -13,6 +13,7 @@ import { NvgUI } from "./pages/novagon_ui";
 import { useState } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Profile } from "./pages/profile";
+import ChatRoom from "./pages/chat";
 //// import { ChatRoom } from "./components/chat/chatRoom";
 
 // Initialize Firebase
@@ -49,6 +50,7 @@ function App() {
           <Route path="/maintenance" element={<Maintenance />} />
           <Route path="/ui" element={<NvgUI />} />
           <Route path="/profile" element={<ProfileInit />} />
+          <Route path="/chat" element={<ChatUI />}/>
         </Routes>
       </BrowserRouter>
     </>
@@ -101,7 +103,7 @@ function  ChatUI() {
   return (
     <>
       <section className="p-6">
-        {user ? <ImageMenu user={user} /> : <SignIn />}
+        {user ? <ChatRoom/> : <SignIn />}
       </section>
     </>
   );

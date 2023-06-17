@@ -13,3 +13,14 @@ h1, h2, h3, button {
 a {
   @apply hover:text-primaryBlue-primary transition-all
 }
+.message {
+  @apply flex items-center space-x-2 ;
+}
+
+.sent p {
+  @apply p-1 px-2 rounded-full bg-primaryBlue-primary dark:bg-gray-secondary justify-self-end;
+}
+
+.received p {
+  @apply p-1 px-2 bg-white rounded-full dark:bg-zinc-900;
+}
