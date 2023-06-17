@@ -18,9 +18,9 @@ a {
 }
 
 .sent p {
-  @apply p-1 px-2 rounded-full bg-primaryBlue-primary dark:bg-gray-secondary justify-self-end;
+  @apply p-1 px-2 rounded-md bg-primaryBlue-primary dark:bg-gray-secondary justify-self-end break-all;
 }
 
 .received p {
-  @apply p-1 px-2 bg-white rounded-full dark:bg-zinc-900;
+  @apply p-1 px-2 bg-white rounded-md dark:bg-zinc-900 break-all;
 }

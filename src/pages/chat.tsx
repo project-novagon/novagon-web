@@ -28,10 +28,10 @@ function ChatMessage(props: ChatMessageProps) {
   
     return (
       <div className={`message ${messageClass}`}>
-        <img src={photoURL} alt="User Avatar" className="rounded-full w-9 h.9"/>
+        <img src={photoURL ? photoURL : 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="User Avatar" className="rounded-full w-9 h.9"/>
         <div>
           <span className="display-name">{displayName}</span>
-          <p>{text}</p>
+          <p className="flex-wrap">{text}</p>
         </div>
       </div>
     );
@@ -76,7 +76,7 @@ function ChatMessage(props: ChatMessageProps) {
             ))}
         </main>
   
-        <form onSubmit={sendMessage} className="flex items-center justify-center space-x-4"> 
+        <form onSubmit={sendMessage} className=" h-[10vh] fixed bottom-0  w-full flex text-xs justify-center items-center dark:bg-black/50 bg-white/50 backdrop-blur-md p-4"> 
           <input
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
