@@ -17,7 +17,7 @@ export const UploadVideo = ({ user }: Props) => {
   const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
     if (vid) {
-      const allowedTypes = ["	video/mp4", "video/quicktime", "video/x-msvideo", "video/x-ms-wmv"];
+      const allowedTypes = ["video/mp4", "video/quicktime", "video/x-msvideo", "video/x-ms-wmv"];
       if (allowedTypes.includes(vid.type)) {
         try {
           const snapshot = await uploadVideo({ vid, uid });
@@ -37,7 +37,7 @@ export const UploadVideo = ({ user }: Props) => {
   return (
     <div>
       {/* Diplays Image  */}
-      {vid && <video height={200} width={200} className="rounded-md" src={URL.createObjectURL(vid)} />}
+      {vid && <video height={200} width={200} className="rounded-md" src={URL.createObjectURL(vid)} controls />}
       {/* Display success Message */}
       {uploadSuccessfuly && (
         <p>File uploaded successfully! Refesh to see it</p>
@@ -45,7 +45,7 @@ export const UploadVideo = ({ user }: Props) => {
       {/* The form to accept the image input */}
       <form  className="p-1" onSubmit={submitHandler}>
         <label>
-          Upload Image:
+          Upload Video:
         <input
           type="File"
           required

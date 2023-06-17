@@ -24,6 +24,8 @@ console.log("This is a Browser Featuer made for Developers. \nif someone asks yo
   "font-weight: 700;",
   "scam."
 )
+
+
 function App() {
   const [appMenuOpen, setAppMenuOpen] = useState(false);
   return (
@@ -31,7 +33,7 @@ function App() {
       <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
         <div className="flex items-center space-x-4">
           <button onClick={() => {
-            setAppMenuOpen(appMenuOpen => !appMenuOpen)
+            setAppMenuOpen(true)
           }}>
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="" className="w-16 rounded-lg" />
           </button>
