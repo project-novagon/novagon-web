@@ -52,7 +52,7 @@ function ChatMessage(props: ChatMessageProps) {
   
   const { uid, photoURL, displayName } = auth.currentUser || {};
 
-  await addDoc(listAllMessages, {
+  await addDoc(publicChatRef, {
     text: formValue,
     sendDate: serverTimestamp(),
     uid,
@@ -71,7 +71,7 @@ function ChatMessage(props: ChatMessageProps) {
               <ChatMessage
                 key={message.id}
                 message={message}
-                currentUser={} // idk what to put here yet
+                currentUser={auth.currentUser} // idk what to put here yet
               />
             ))}
         </main>

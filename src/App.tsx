@@ -94,6 +94,19 @@ function ImageUI() {
     </>
   );
 }
+
+function  ChatUI() {
+  const [user] = useAuthState(auth);
+
+  return (
+    <>
+      <section className="p-6">
+        {user ? <ImageMenu user={user} /> : <SignIn />}
+      </section>
+    </>
+  );
+}
+
 function ProfileInit() {
   const [user] = useAuthState(auth);
 
@@ -126,6 +139,7 @@ function VideoUI() {
     </>
   )
 }
+
 function NotFound() {
   return (
     <>
