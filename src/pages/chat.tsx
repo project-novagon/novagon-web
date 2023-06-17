@@ -1,6 +1,6 @@
 import { auth, db } from "../firebase-config";
 import { doc, getDoc, Timestamp, collection, serverTimestamp, query, orderBy, DocumentData, Query, addDoc, CollectionReference } from "firebase/firestore";
-import { User } from "firebase/auth";
+import { User, onAuthStateChanged } from "firebase/auth";
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 import { useState } from "react";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -71,7 +71,7 @@ function ChatMessage(props: ChatMessageProps) {
               <ChatMessage
                 key={message.id}
                 message={message}
-                currentUser={useAuthState(auth)}
+                currentUser={} // idk what to put here yet
               />
             ))}
         </main>
