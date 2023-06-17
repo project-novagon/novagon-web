@@ -39,7 +39,7 @@ function ChatMessage(props: ChatMessageProps) {
 
   function ChatRoom() {
 
-    const publicChatRef = collection(db, 'messages') as CollectionReference<Message>;
+    const publicChatRef = collection(db, 'messages');
 
     const listAllMessages = query(publicChatRef, orderBy('sendDate')) as Query<Message>;
 
@@ -52,7 +52,7 @@ function ChatMessage(props: ChatMessageProps) {
   
   const { uid, photoURL, displayName } = auth.currentUser || {};
 
-  await addDoc(publicChatRef, {
+  await addDoc(listAllMessages, {
     text: formValue,
     sendDate: serverTimestamp(),
     uid,
