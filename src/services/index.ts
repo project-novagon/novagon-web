@@ -16,7 +16,7 @@ interface UploadImage {
   uid: User["uid"];
 }
 
-interface uploadVideo {
+interface UploadVideo {
   vid: File;
   uid: User["uid"];
 }
@@ -52,7 +52,7 @@ export const fetchAllImages = async (): Promise<ListResult> => {
 export const uploadVideo = async ({
   vid,
   uid,
-}: uploadVideo): Promise<UploadResult> => {
+}: UploadVideo): Promise<UploadResult> => {
   try {
     const imageName = `videos/${uid}_${vid.name}`;
     const storageRef = ref(storage, imageName);
