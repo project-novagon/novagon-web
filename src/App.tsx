@@ -36,6 +36,7 @@ function App() {
             setAppMenuOpen(true)
           }}>
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="" className="w-16 rounded-lg" />
+            <p className="sr-only">Logo / Open Menu</p>
           </button>
           <h1 className='hidden text-xl font-bold font-albertsans md:block'>Novagon Web</h1>
         </div>
@@ -73,6 +74,7 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
       <div className="w-screen h-screen p-4 m-4 space-y-4 bg-white rounded-lg dark:bg-gray-secondary md:w-96">
         <button onClick={closeAppMenu}>
           <XMarkIcon className="w-8 transition stroke-1 hover:stroke-primaryBlue-primary hover:stroke-2" />
+          <p className="sr-only">Close Menu</p>
         </button>
         {user ?
           <h1 className="flex items-center gap-1 text-3xl">Hello, <div className="inline-flex items-center justify-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Photo" className="w-8 h-8 rounded-full "/>}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
