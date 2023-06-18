@@ -60,7 +60,7 @@ function App() {
 }
 
 interface appMenuProps {
-  appMenuOpen: Boolean,
+  appMenuOpen: boolean,
   closeAppMenu: () => void
 }
 function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
