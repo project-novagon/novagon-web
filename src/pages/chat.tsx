@@ -85,6 +85,7 @@ function ChatMessage(props: ChatMessageProps) {
           />
           <button type="submit" className="w-16 h-16 px-5 transition-all rounded-md shadow-sm dark:bg-zinc-600 bg-primaryBlue-primary hover:shadow-lg">
             <PaperAirplaneIcon className="send-icon" />
+            <p className="sr-only">send</p>
           </button>
         </form>
       </div>
