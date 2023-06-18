@@ -10,7 +10,7 @@ import React from "react";
 import { TOS } from "./pages/tos";
 import { auth } from "./firebase-config";
 import { NvgUI } from "./pages/novagon_ui";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Profile } from "./pages/profile";
 import ChatRoom from "./pages/chat";
@@ -25,7 +25,6 @@ console.log("This is a Browser Featuer made for Developers. \nif someone asks yo
   "scam."
 )
 
-
 function App() {
   const [appMenuOpen, setAppMenuOpen] = useState(false);
   return (
@@ -33,7 +32,7 @@ function App() {
       <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
         <div className="flex items-center space-x-4">
           <button onClick={() => {
-            setAppMenuOpen(true)
+            setAppMenuOpen((appMenuOpen) => !appMenuOpen)
           }}>
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="" className="w-16 rounded-lg" />
             <p className="sr-only">Logo / Open Menu</p>
@@ -53,7 +52,7 @@ function App() {
           <Route path="/maintenance" element={<Maintenance />} />
           <Route path="/ui" element={<NvgUI />} />
           <Route path="/profile" element={<ProfileInit />} />
-          <Route path="/chat" element={<ChatUI />}/>
+          <Route path="/chat" element={<ChatUI />} />
         </Routes>
       </BrowserRouter>
     </>
@@ -64,11 +63,12 @@ interface appMenuProps {
   appMenuOpen: boolean,
   closeAppMenu: () => void
 }
+/*
 function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
   const [user] = useAuthState(auth);
-   if (!appMenuOpen) {
-   return null;
-   }
+  if (!appMenuOpen) {
+    return null;
+  }
   return (
     <div className="fixed z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg md:justify-start md:items-start">
       <div className="w-screen h-screen p-4 m-4 space-y-4 bg-white rounded-lg dark:bg-gray-secondary md:w-96">
@@ -77,7 +77,7 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
           <p className="sr-only">Close Menu</p>
         </button>
         {user ?
-          <h1 className="flex items-center gap-1 text-3xl">Hello, <div className="inline-flex items-center justify-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Photo" className="w-8 h-8 rounded-full "/>}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
+          <h1 className="flex items-center gap-1 text-3xl">Hello, <div className="inline-flex items-center justify-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Photo" className="w-8 h-8 rounded-full " />}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
         <div className="block space-y-2">
           <a href="/" className="block">Images</a>
           <a href="/videos" className="block">Videos</a>
@@ -88,6 +88,23 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
       </div>
     </div>
   )
+}
+*/
+
+// <XMarkIcon className="w-8 transition stroke-1 hover:stroke-primaryBlue-primary hover:stroke-2" />
+function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
+  // const [user] = useAuthState(auth);
+  if (!appMenuOpen) return null;
+
+  return (
+    <div className="fixed z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg md:justify-start md:items-start">
+      <div className="w-screen h-screen p-4 m-4 space-y-4 bg-white rounded-lg dark:bg-gray-secondary md:w-96">
+        <button onClick={closeAppMenu}>
+          CLOSE
+        </button>
+      </div>
+    </div>
+  );
 }
 function ImageUI() {
   const [user] = useAuthState(auth);
@@ -101,13 +118,13 @@ function ImageUI() {
   );
 }
 
-function  ChatUI() {
+function ChatUI() {
   const [user] = useAuthState(auth);
 
   return (
     <>
       <section className="p-6">
-        {user ? <ChatRoom/> : <SignIn />}
+        {user ? <ChatRoom /> : <SignIn />}
       </section>
     </>
   );

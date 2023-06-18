@@ -64,7 +64,7 @@ function ChatMessage(props: ChatMessageProps) {
     };
   
     return (
-      <div className="w-full h-96">
+      <div className="flex w-full h-96">
         <main className="space-y-4">
           {messages &&
             messages.map((message: Message) => (
@@ -76,14 +76,14 @@ function ChatMessage(props: ChatMessageProps) {
             ))}
         </main>
   
-        <form onSubmit={sendMessage} className=" h-[10vh] fixed bottom-0  w-full flex text-xs justify-center items-center dark:bg-black/50 bg-white/50 backdrop-blur-md p-4"> 
+        <form onSubmit={sendMessage} className=" h-[10vh] fixed bottom-0  w-full flex text-xs justify-center items-center dark:bg-black/50 bg-white/50 backdrop-blur-md p-4 z-0">
           <input
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
             placeholder="Type your message..."
-            className="px-4 m-1 text-lg leading-3 rounded-md shadow-sm opacity-100 w-96  h-16 font-albertsans ring-4 bg-zinc-300 dark:bg-zinc-500 ring-zinc-400 dark:ring-zinc-600 ring-inset focus:ring-zinc-500 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:ring-4 border-none"
+            className="h-16 px-4 m-1 text-lg leading-3 border-none rounded-md shadow-sm opacity-100 w-96 font-albertsans ring-4 bg-zinc-300 dark:bg-zinc-500 ring-zinc-400 dark:ring-zinc-600 ring-inset focus:ring-zinc-500 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:ring-4"
           />
-          <button type="submit" className="dark:bg-zinc-600 bg-primaryBlue-primary px-5 h-16 w-16 rounded-md shadow-sm hover:shadow-lg transition-all">
+          <button type="submit" className="w-16 h-16 px-5 transition-all rounded-md shadow-sm dark:bg-zinc-600 bg-primaryBlue-primary hover:shadow-lg">
             <PaperAirplaneIcon className="send-icon" />
           </button>
         </form>
