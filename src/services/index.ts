@@ -31,8 +31,8 @@ export const uploadImage = async ({
   uid,
 }: UploadImage): Promise<UploadResult> => {
   try {
-    const imageName = `images/${uid}_${img.name}`;
-    const storageRef = ref(storage, imageName);
+    const videoName = `images/${uid}_${img.name}`;
+    const storageRef = ref(storage, videoName);
     const snapshot = await uploadBytes(storageRef, img);
     return snapshot;
   } catch (error) {
