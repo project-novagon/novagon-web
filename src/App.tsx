@@ -37,7 +37,7 @@ function App() {
           }}>
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="" className="w-16 rounded-lg" />
           </button>
-          <h1 className='text-xl font-bold font-albertsans md:block hidden'>Novagon Web</h1>
+          <h1 className='hidden text-xl font-bold font-albertsans md:block'>Novagon Web</h1>
         </div>
         <SignOut auth={auth} />
       </header>
@@ -69,18 +69,18 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
    return null;
    }
   return (
-    <div className="fixed z-50 w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg flex md:justify-start md:items-start justify-center items-center">
-      <div className="dark:bg-gray-secondary bg-white h-screen m-4 md:w-96 w-screen rounded-lg p-4 space-y-4">
+    <div className="fixed z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg md:justify-start md:items-start">
+      <div className="w-screen h-screen p-4 m-4 space-y-4 bg-white rounded-lg dark:bg-gray-secondary md:w-96">
         <button onClick={closeAppMenu}>
-          <XMarkIcon className="w-8 hover:stroke-primaryBlue-primary hover:stroke-2 stroke-1 transition" />
+          <XMarkIcon className="w-8 transition stroke-1 hover:stroke-primaryBlue-primary hover:stroke-2" />
         </button>
         {user ?
-          <h1 className="items-center flex gap-1 text-3xl">Hello, <div className="inline-flex justify-center items-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Photo" className="w-8 h-8 rounded-full "/>}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
+          <h1 className="flex items-center gap-1 text-3xl">Hello, <div className="inline-flex items-center justify-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Photo" className="w-8 h-8 rounded-full "/>}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
         <div className="block space-y-2">
           <a href="/" className="block">Images</a>
           <a href="/videos" className="block">Videos</a>
           <a href="/wip" className="block"> [WIP] Chat</a>
-          <a href="/wip" className="md:hidden block">[WIP] QuiShots</a>
+          <a href="/wip" className="block md:hidden">[WIP] QuiShots</a>
           <a href="/profile" className="block">You</a>
         </div>
       </div>
