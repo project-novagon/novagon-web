@@ -18,9 +18,13 @@ a {
 }
 
 .sent p {
-  @apply p-1 px-2 rounded-md bg-primaryBlue-primary dark:bg-gray-secondary justify-self-end break-all;
+  @apply p-1 px-2 break-all rounded-md bg-primaryBlue-primary dark:bg-gray-secondary justify-self-end;
 }
 
 .received p {
-  @apply p-1 px-2 bg-white rounded-md dark:bg-zinc-900 break-all;
+  @apply p-1 px-2 break-all bg-white rounded-md dark:bg-zinc-900;
+}
+
+button {
+  @apply px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700
 }

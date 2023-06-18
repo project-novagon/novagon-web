@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Profile } from "./pages/profile";
 import ChatRoom from "./pages/chat";
+import { HomeUI, LandingPage } from "./pages/dashboard";
 //// import { ChatRoom } from "./components/chat/chatRoom";
 
 // Initialize Firebase
@@ -30,13 +31,10 @@ function App() {
   return (
     <>
       <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
-        <div className="flex items-center space-x-4">
-          <button onClick={() => {
-            setAppMenuOpen((appMenuOpen) => !appMenuOpen)
-          }}>
-            <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="" className="w-16 rounded-lg" />
-            <p className="sr-only">Logo / Open Menu</p>
-          </button>
+        <div className="flex items-center p-0 m-0 space-x-4 bg-transparent">
+            <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="w-16 rounded-lg cursor-pointer" onClick={() => { setAppMenuOpen((appMenuOpen) => !appMenuOpen)
+            console.log(appMenuOpen)}}/>
+
           <h1 className='hidden text-xl font-bold font-albertsans md:block'>Novagon Web</h1>
         </div>
         <SignOut auth={auth} />
@@ -44,7 +42,7 @@ function App() {
       <AppMenu appMenuOpen={appMenuOpen} closeAppMenu={() => setAppMenuOpen(false)} />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ImageUI />} />
+          <Route path="/images" element={<ImageUI />} />
           <Route path="/videos" element={<Videos />} />
           <Route path="/wip" element={<WorkInProgress />} />
           <Route path="*" element={<NotFound />} />
@@ -53,6 +51,8 @@ function App() {
           <Route path="/ui" element={<NvgUI />} />
           <Route path="/profile" element={<ProfileInit />} />
           <Route path="/chat" element={<ChatUI />} />
+          <Route path="/home" element={<HomeUI/>}/>
+          <Route path="/" element={<LandingPage />}/>
         </Routes>
       </BrowserRouter>
     </>
@@ -63,7 +63,7 @@ interface appMenuProps {
   appMenuOpen: boolean,
   closeAppMenu: () => void
 }
-/*
+
 function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
   const [user] = useAuthState(auth);
   if (!appMenuOpen) {
@@ -89,23 +89,7 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
     </div>
   )
 }
-*/
 
-// <XMarkIcon className="w-8 transition stroke-1 hover:stroke-primaryBlue-primary hover:stroke-2" />
-function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
-  // const [user] = useAuthState(auth);
-  if (!appMenuOpen) return null;
-
-  return (
-    <div className="fixed z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg md:justify-start md:items-start">
-      <div className="w-screen h-screen p-4 m-4 space-y-4 bg-white rounded-lg dark:bg-gray-secondary md:w-96">
-        <button onClick={closeAppMenu}>
-          CLOSE
-        </button>
-      </div>
-    </div>
-  );
-}
 function ImageUI() {
   const [user] = useAuthState(auth);
 
