@@ -32,7 +32,22 @@ function HomeUI() {
 
 function Dashboard() {
     return (
-        <h1>Hello</h1>
+        <div className="flex space-y-7">
+        <div className="sticky w-48 h-screen p-4 top-7 dark:bg-zinc-700">
+            <h1>Dashboard</h1>
+            <ul>
+                <li>Item </li>
+                <li>Item </li>
+                <li>Item </li>
+                <li>Item </li>
+                <li>Item </li>
+            </ul>
+        </div>
+        <div className="p-4">
+            <p>Content</p>
+        </div>
+    </div>
+
     )
 }
 

@@ -30,7 +30,7 @@ function App() {
   const [appMenuOpen, setAppMenuOpen] = useState(false);
   return (
     <>
-      <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
+      <header className='sticky top-0 z-50 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
         <div className="flex items-center p-0 m-0 space-x-4 bg-transparent">
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="w-16 rounded-lg cursor-pointer" onClick={() => { setAppMenuOpen((appMenuOpen) => !appMenuOpen)
             console.log(appMenuOpen)}}/>
