@@ -33,6 +33,7 @@ function HomeUI() {
 }
 
 function Dashboard() {
+    const [user] = useAuthState(auth);
     return (
         <div className="flex space-y-7">
             <div className="sticky top-0 w-48 h-screen p-4 dark:bg-zinc-700">
@@ -53,7 +54,7 @@ function Dashboard() {
                     </Tab.List>
                     <Tab.Panels>
                         <Tab.Panel>
-                            <UserCard/>
+                            <UserCard userName={user?.displayName} photoURL={user?.photoURL}/>
                         </Tab.Panel>
                         <Tab.Panel>Content 2</Tab.Panel>
                     </Tab.Panels>

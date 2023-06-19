@@ -1,19 +1,16 @@
-import { Children } from "react";
-import guestPFP
+import { guestPFP } from "../firebase-config";
 
 interface userCardProps {
-    children: any,
-    photoURL: string,
-    userName: string,
+    photoURL: any,
+    userName: any,
 }
 
-function UserCard({children, photoURL, userName}: userCardProps){
+function UserCard({ photoURL, userName}: userCardProps){
     return (
         <div>
             <div>
-                <img src={photoURL? photoURL : g} alt="" />
-                <h4></h4>
-                <p></p>
+                <img src={photoURL? photoURL : guestPFP} alt="" />
+                <h4>{userName? userName : "Guest"}</h4>
             </div>
         </div>
     )
