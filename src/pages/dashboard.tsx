@@ -3,6 +3,7 @@ import { auth } from "../firebase-config"
 import { SignIn } from "../components/AuthSys";
 import { Link } from "react-router-dom";
 import { Tab } from "@headlessui/react";
+import { UserCard } from "../components/userCard";
 
 function LandingPage() {
     const [user] = useAuthState(auth);
@@ -47,14 +48,14 @@ function Dashboard() {
             <div className="p-4">
                 <Tab.Group>
                     <Tab.List>
-                        <Tab>Tab 1</Tab>
-                        <Tab>Tab 2</Tab>
-                        <Tab>Tab 3</Tab>
+                        <Tab>New</Tab>
+                        <Tab>For You</Tab>
                     </Tab.List>
                     <Tab.Panels>
-                        <Tab.Panel>Content 1</Tab.Panel>
+                        <Tab.Panel>
+                            <UserCard/>
+                        </Tab.Panel>
                         <Tab.Panel>Content 2</Tab.Panel>
-                        <Tab.Panel>Content 3</Tab.Panel>
                     </Tab.Panels>
                 </Tab.Group>
             </div>

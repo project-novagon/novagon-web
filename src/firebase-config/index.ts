@@ -20,3 +20,5 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 
 export const storage = getStorage(app);
+
+export const guestPFP = 'https://novagoncdn.netlify.app/img/guest_pfp.png';
