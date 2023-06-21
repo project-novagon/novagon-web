@@ -8,7 +8,7 @@ interface userCardProps {
 function UserCard({ photoURL, userName}: userCardProps){
     return (
         <div>
-            <div>
+            <div className="">
                 <img src={photoURL? photoURL : guestPFP} alt="" />
                 <h4>{userName? userName : "Guest"}</h4>
             </div>
