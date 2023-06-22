@@ -96,7 +96,7 @@ function ImageUI() {
 
   return (
     <>
-      <section className="p-6">
+      <section className="md:p-6 p-0">
         {user ? <ImageMenu user={user} /> : <SignIn />}
       </section>
     </>
@@ -108,7 +108,7 @@ function ChatUI() {
 
   return (
     <>
-      <section className="p-6">
+      <section className="md:p-6 p-0">
         {user ? <ChatRoom /> : <SignIn />}
       </section>
     </>
@@ -120,7 +120,7 @@ function ProfileInit() {
 
   return (
     <>
-      <section className="p-6">
+      <section className="md:p-6 p-0">
         {user ? <Profile /> : <SignIn />}
       </section>
     </>
@@ -130,7 +130,7 @@ function Videos() {
   const [user] = useAuthState(auth);
   return (
     <>
-      <section className="p-6">
+      <section className="md:p-6 p-0">
         {user ? <VideoUI /> : <SignIn />}
       </section>
     </>
@@ -141,7 +141,7 @@ function VideoUI() {
 
   return (
     <>
-      <section className="p-6">
+      <section className="md:p-6 p-0">
         {user ? <VideoMenu user={user} /> : <SignIn />}
       </section>
     </>

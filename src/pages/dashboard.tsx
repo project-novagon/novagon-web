@@ -25,7 +25,7 @@ function HomeUI() {
     const [user] = useAuthState(auth);
     return (
         <>
-            <section className="p-6">
+            <section className="md:p-6 p-0">
                 {user ? <Dashboard /> : <SignIn />}
             </section>
         </>
