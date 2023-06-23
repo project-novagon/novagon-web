@@ -70,17 +70,16 @@ export function SignIn() {
   return (
     <>
       {isBanned && <BannedPopup isBanned={isBanned} onClose={() => setIsBanned(false)} />}
-      {toggleAccountUsage === false ?
         <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-gradient-to-bl from-primaryBlue-primary to-violet-900 rounded-lg">
-          <div className="md:w-96 md:h-80 h-screen w-full px-12 py-8 bg-zinc-600 md:rounded-lg rounded-none shadow flex-col justify-center items-center gap-8 inline-flex">
-            <h1 className="text-center text-white text-[24px] font-bold leading-tight">Sign In</h1>
+          <div className="inline-flex flex-col items-center justify-center w-full h-screen gap-8 px-12 py-8 rounded-none shadow-lg md:w-96 md:h-80 bg-zinc-600 md:rounded-lg">
+            <h1 className="text-center text-white text-[24px] font-bold leading-tight">{toggleAccountUsage ? "Sign In" : "Welcome!"}</h1>
             <div className="p-[0px] flex-col justify-center items-center gap-4 flex">
-              <button className="self-stretch px-4 py-2 bg-neutral-700 rounded-full justify-center items-center gap-2 inline-flex" onClick={signInAsGuest}>
-                <UserIcon className="w-6 h-6 relative" />
+              <button className="inline-flex items-center self-stretch justify-center gap-2 px-4 py-2 rounded-full bg-neutral-700" onClick={signInAsGuest}>
+                <UserIcon className="relative w-6 h-6" />
                 <div className="text-center text-sky-500 text-[14px] font-bold leading-tight">Sign in as guest</div>
               </button>
-              <button className="self-stretch px-4 py-2 bg-neutral-700 rounded-full justify-center items-center gap-2 inline-flex" onClick={signInWithGitHub}>
-                <div className="w-6 h-6 relative" >
+              <button className="inline-flex items-center self-stretch justify-center gap-2 px-4 py-2 rounded-full bg-neutral-700" onClick={signInWithGitHub}>
+                <div className="relative w-6 h-6" >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="github-mark-white 1" clip-path="url(#clip0_143_90)">
                       <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M11.9642 0C5.34833 0 0 5.5 0 12.3042C0 17.7432 3.42686 22.3472 8.18082 23.9767C8.77518 24.0992 8.9929 23.712 8.9929 23.3862C8.9929 23.101 8.97331 22.1232 8.97331 21.1045C5.64514 21.838 4.95208 19.6378 4.95208 19.6378C4.41722 18.2118 3.62473 17.8452 3.62473 17.8452C2.53543 17.0915 3.70408 17.0915 3.70408 17.0915C4.91241 17.173 5.54645 18.3545 5.54645 18.3545C6.61592 20.2285 8.33927 19.699 9.03257 19.373C9.13151 18.5785 9.44865 18.0285 9.78539 17.723C7.13094 17.4377 4.33812 16.3785 4.33812 11.6523C4.33812 10.3078 4.81322 9.20775 5.56604 8.35225C5.44727 8.04675 5.03118 6.7835 5.68506 5.09275C5.68506 5.09275 6.69527 4.76675 8.97306 6.35575C9.94827 6.08642 10.954 5.9494 11.9642 5.94825C12.9744 5.94825 14.0042 6.091 14.9552 6.35575C17.2332 4.76675 18.2434 5.09275 18.2434 5.09275C18.8973 6.7835 18.481 8.04675 18.3622 8.35225C19.1349 9.20775 19.5904 10.3078 19.5904 11.6523C19.5904 16.3785 16.7976 17.4172 14.1233 17.723C14.5592 18.11 14.9353 18.8432 14.9353 20.0045C14.9353 21.6545 14.9158 22.9787 14.9158 23.386C14.9158 23.712 15.1337 24.0992 15.7278 23.977C20.4818 22.347 23.9087 17.7432 23.9087 12.3042C23.9282 5.5 18.5603 0 11.9642 0Z" fill="white" />
@@ -95,8 +94,8 @@ export function SignIn() {
                 </div>
                 <div className="text-center text-sky-500 text-[14px] font-bold leading-tight">Sign in with GitHub</div>
               </button>
-              <button className="self-stretch px-4 py-2 bg-neutral-700 rounded-full justify-center items-center gap-2 inline-flex" onClick={signInWithGoogle}>
-                <div className="w-6 h-6 relative">
+              <button className="inline-flex items-center self-stretch justify-center gap-2 px-4 py-2 rounded-full bg-neutral-700" onClick={signInWithGoogle}>
+                <div className="relative w-6 h-6">
                   <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Google Icon" clip-path="url(#clip0_143_114)">
                       <g id="Group">
@@ -118,13 +117,10 @@ export function SignIn() {
               </button>
             </div>
             <div className="p-[0px] flex-col justify-start items-start gap-[10px] flex">
-              <p className="text-center">Don't have a account? <button  className="bg-transparent text-black hover:bg-transparent dark:text-white p-0 m-0 hover:text-primaryBlue-primary transition-all underline">Sign Up</button></p>
+              <p className="text-center">{toggleAccountUsage ? "Don't have a account?" : "Have an account?"} <button  className="p-0 m-0 text-black underline transition-all bg-transparent hover:bg-transparent dark:text-white hover:text-primaryBlue-primary" onClick={() => setAccountUsage(toggleAccountUsage => !toggleAccountUsage)}>{toggleAccountUsage ? "Sign Up" : "Sign In"}</button></p>
             </div>
           </div>
         </div>
-        :
-        <h1>WIP</h1>
-      }
     </>
   );
 }
@@ -160,7 +156,6 @@ export function BannedPopup({ isBanned, onClose }: BannedPopupProps) {
   if (!isBanned) {
     return null; // Render nothing if not banned
   }
-
   return (
     <div className="fixed top-0 left-0 z-50 flex items-end justify-center w-full h-full p-4 bg-black bg-opacity-50 sm:items-center sm:p-0 backdrop-blur-lg">
       <div className="space-y-2">
