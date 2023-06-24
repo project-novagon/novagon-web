@@ -10,11 +10,12 @@ import React from "react";
 import { TOS } from "./pages/tos";
 import { auth } from "./firebase-config";
 import { NvgUI } from "./pages/novagon_ui";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Profile } from "./pages/profile";
 import ChatRoom from "./pages/chat";
 import { HomeUI, LandingPage } from "./pages/dashboard";
+
 console.log("%cStop!",
   "color:red;font-family:'Albert Sans', sans-serif;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
 console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
