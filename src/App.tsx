@@ -74,7 +74,7 @@ function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
           <p className="sr-only">Close Menu</p>
         </button>
         {user ?
-          <h1 className="flex items-center gap-1 text-3xl">Hello, <div className="inline-flex items-center justify-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Photo" className="w-8 h-8 rounded-full " />}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
+          <h1 className="flex items-center gap-1 text-3xl">Hello, <div className="inline-flex items-center justify-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Profile" className="w-8 h-8 rounded-full " />}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
         <div className="block space-y-2">
           <a href="/home" className="block">Home</a>
           <a href="/images" className="block">Images</a>
