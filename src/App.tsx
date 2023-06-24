@@ -15,10 +15,6 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Profile } from "./pages/profile";
 import ChatRoom from "./pages/chat";
 import { HomeUI, LandingPage } from "./pages/dashboard";
-//// import { ChatRoom } from "./components/chat/chatRoom";
-
-// Initialize Firebase
-// TODO: fix this shit
 console.log("%cStop!",
   "color:red;font-family:'Albert Sans', sans-serif;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
 console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
@@ -96,7 +92,7 @@ function ImageUI() {
 
   return (
     <>
-      <section className="md:p-6 p-0">
+      <section className="p-0 md:p-6">
         {user ? <ImageMenu user={user} /> : <SignIn />}
       </section>
     </>
@@ -108,7 +104,7 @@ function ChatUI() {
 
   return (
     <>
-      <section className="md:p-6 p-0">
+      <section className="p-0 md:p-6">
         {user ? <ChatRoom /> : <SignIn />}
       </section>
     </>
@@ -120,7 +116,7 @@ function ProfileInit() {
 
   return (
     <>
-      <section className="md:p-6 p-0">
+      <section className="p-0 md:p-6">
         {user ? <Profile /> : <SignIn />}
       </section>
     </>
@@ -130,7 +126,7 @@ function Videos() {
   const [user] = useAuthState(auth);
   return (
     <>
-      <section className="md:p-6 p-0">
+      <section className="p-0 md:p-6">
         {user ? <VideoUI /> : <SignIn />}
       </section>
     </>
@@ -141,7 +137,7 @@ function VideoUI() {
 
   return (
     <>
-      <section className="md:p-6 p-0">
+      <section className="p-0 md:p-6">
         {user ? <VideoMenu user={user} /> : <SignIn />}
       </section>
     </>
