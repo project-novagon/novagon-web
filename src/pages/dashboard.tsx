@@ -10,13 +10,21 @@ function LandingPage() {
 
     return (
         <>
-            <div className="flex flex-col items-center justify-center w-full space-y-5 bg-white rounded-lg dark:bg-slate-300 h-96 bg-gradient-to-bl from-primaryBlue-primary to-violet-900">
-                <h1 className="text-3xl">Welcome To Novagon Web</h1>
-                <p>The FOSS All-In-One App.</p>
+            {user ?
+             <HomeUI />
+            :
+            <>
+            <div className="flex flex-col items-start self-stretch justify-center w-full p-16 space-y-5 bg-right-bottom bg-cover shadow-2xl h-96 bg-hero-img">
+                <div className="p-2 space-y-4 transition-all backdrop-blur-lg rounded-xl hover:backdrop-blur-sm">
+                <h1 className="text-3xl">Where the ideas are shared.</h1>
+                <p className="flex-wrap w-64 font-jbmono">Novagon Web. The First Open Source Social Media. Built For Everyone</p>
                 <button>
                     <Link to="/home">Sign In</Link>
                 </button>
+                </div>
             </div>
+        </>
+            }
         </>
     )
 }
@@ -25,7 +33,7 @@ function HomeUI() {
     const [user] = useAuthState(auth);
     return (
         <>
-            <section className="md:p-6 p-0">
+            <section className="p-0 md:p-6">
                 {user ? <Dashboard /> : <SignIn />}
             </section>
         </>
@@ -54,7 +62,7 @@ function Dashboard() {
                     </Tab.List>
                     <Tab.Panels>
                         <Tab.Panel>
-                            <UserCard userName={user?.displayName} photoURL={user?.photoURL}/>
+                            <UserCard userName={user?.displayName} photoURL={user?.photoURL} />
                         </Tab.Panel>
                         <Tab.Panel>Content 2</Tab.Panel>
                     </Tab.Panels>
