@@ -4,6 +4,8 @@ import { SignIn } from "../components/AuthSys";
 import { Link } from "react-router-dom";
 import { Tab } from "@headlessui/react";
 import { UserCard } from "../components/userCard";
+import { FeatureCard } from "../components/ui/featureCard";
+import { CommandLineIcon } from "@heroicons/react/24/outline";
 
 function LandingPage() {
     const [user] = useAuthState(auth);
@@ -19,9 +21,13 @@ function LandingPage() {
                 <h1 className="text-3xl">Where the ideas are shared.</h1>
                 <p className="flex-wrap w-64 font-jbmono">Novagon Web. The First Open Source Social Media. Built For Everyone</p>
                 <button>
-                    <Link to="/home">Sign In</Link>
+                    <Link to="/home">Sign In / Up</Link>
                 </button>
                 </div>
+            </div>
+            <div className="p-8">
+            <h1 className="text-3xl">Features</h1>
+            <FeatureCard Title="Open" iconJSX={<CommandLineIcon className="w-8"/>} Desc="Novagon Web is Open-Source, that means anyone can help make Novagon Web better"/>
             </div>
         </>
             }
