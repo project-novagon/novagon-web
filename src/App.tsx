@@ -24,19 +24,19 @@ console.log("This is a Browser Featuer made for Developers. \nif someone asks yo
 )
 
 function App() {
-  const [appMenuOpen, setAppMenuOpen] = useState(false);
   return (
     <>
-      <header className='sticky top-0 z-50 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
-        <div className="flex items-center p-0 m-0 space-x-4 bg-transparent">
-            <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="w-16 rounded-lg cursor-pointer" onClick={() => { setAppMenuOpen((appMenuOpen) => !appMenuOpen)
-            console.log(appMenuOpen)}}/>
-
-          <h1 className='hidden text-xl font-bold font-albertsans md:block'>Novagon Web</h1>
-        </div>
-        <SignOut auth={auth} />
+      <header className="px-5 py-0 bg-white dark:bg-zinc-900">
+        <nav className="flex flex-row flex-wrap items-center justify-between w-full py-6 mx-auto">
+          <div className="flex items-center space-x-4">
+          <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="w-16 rounded-xl"/>
+          <h2 className="hidden text-2xl md:block">Novagon Web</h2>
+          </div>
+          <div>
+             <SignOut auth={auth}/>
+          </div>
+        </nav>
       </header>
-      <AppMenu appMenuOpen={appMenuOpen} closeAppMenu={() => setAppMenuOpen(false)} />
       <BrowserRouter>
         <Routes>
           <Route path="/images" element={<ImageUI />} />
@@ -48,44 +48,12 @@ function App() {
           <Route path="/ui" element={<NvgUI />} />
           <Route path="/profile" element={<ProfileInit />} />
           <Route path="/chat" element={<ChatUI />} />
-          <Route path="/home" element={<HomeUI/>}/>
-          <Route path="/" element={<LandingPage />}/>
+          <Route path="/home" element={<HomeUI />} />
+          <Route path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </>
   );
-}
-
-interface appMenuProps {
-  appMenuOpen: boolean,
-  closeAppMenu: () => void
-}
-
-function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
-  const [user] = useAuthState(auth);
-  if (!appMenuOpen) {
-    return null;
-  }
-  return (
-    <div className="fixed z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg md:justify-start md:items-start">
-      <div className="w-screen h-screen p-4 m-4 space-y-4 bg-white rounded-lg dark:bg-gray-secondary md:w-96">
-        <button onClick={closeAppMenu}>
-          <XMarkIcon className="w-8 transition stroke-1 hover:stroke-primaryBlue-primary hover:stroke-2" />
-          <p className="sr-only">Close Menu</p>
-        </button>
-        {user ?
-          <h1 className="flex items-center gap-1 text-3xl">Hello, <div className="inline-flex items-center justify-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Profile" className="w-8 h-8 rounded-full " />}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
-        <div className="block space-y-2">
-          <a href="/home" className="block">Home</a>
-          <a href="/images" className="block">Images</a>
-          <a href="/videos" className="block">Videos</a>
-          <a href="/chat" className="block"> [WIP] Chat</a>
-          <a href="/wip" className="block md:hidden">[WIP] QuiShots</a>
-          <a href="/profile" className="block">You</a>
-        </div>
-      </div>
-    </div>
-  )
 }
 
 function ImageUI() {

@@ -44,7 +44,7 @@ function HomeUI() {
     const [user] = useAuthState(auth);
     return (
         <>
-            <section className="p-0 md:p-6">
+            <section className="p-0">
                 {user ? <Dashboard /> : <SignIn />}
             </section>
         </>
@@ -54,33 +54,14 @@ function HomeUI() {
 function Dashboard() {
     const [user] = useAuthState(auth);
     return (
-        <div className="flex space-y-7">
-            <div className="sticky top-0 w-48 h-screen p-4 dark:bg-zinc-700">
-                <h1>Dashboard</h1>
-                <ul>
-                    <li>Item </li>
-                    <li>Item </li>
-                    <li>Item </li>
-                    <li>Item </li>
-                    <li>Item </li>
-                </ul>
+            <div className="flex text-white main-content">
+                <main className="h-screen p-5 basis-3/12 bg-slate-900">
+                    <p>Some content</p>
+                </main>
+                <aside className="h-screen p-5 grow bg-slate-800">
+                    <p>Some other content</p>
+                </aside>
             </div>
-            <div className="p-4">
-                <Tab.Group>
-                    <Tab.List>
-                        <Tab>New</Tab>
-                        <Tab>For You</Tab>
-                    </Tab.List>
-                    <Tab.Panels>
-                        <Tab.Panel>
-                            <UserCard userName={user?.displayName} photoURL={user?.photoURL} />
-                        </Tab.Panel>
-                        <Tab.Panel>Content 2</Tab.Panel>
-                    </Tab.Panels>
-                </Tab.Group>
-            </div>
-        </div>
-
     )
 }
 

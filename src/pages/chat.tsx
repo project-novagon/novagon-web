@@ -39,7 +39,7 @@ function ChatMessage(props: ChatMessageProps) {
 
   function ChatRoom() {
 
-    const publicChatRef = collection(db, 'messages');
+    const publicChatRef = collection(db, 'public-room');
 
     const listAllMessages = query(publicChatRef, orderBy('sendDate')) as Query<Message>;
 
@@ -76,7 +76,7 @@ function ChatMessage(props: ChatMessageProps) {
             ))}
         </main>
   
-        <form onSubmit={sendMessage} className=" h-[10vh] fixed bottom-0  w-full flex text-xs justify-center items-center dark:bg-black/50 bg-white/50 backdrop-blur-md p-4 z-0">
+        <form onSubmit={sendMessage} className="h-[10vh] sticky bottom-0 py-1 w-screen flex text-xs justify-center">
           <input
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}

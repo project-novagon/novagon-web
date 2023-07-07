@@ -70,7 +70,7 @@ export function SignIn() {
   return (
     <>
       {isBanned && <BannedPopup isBanned={isBanned} onClose={() => setIsBanned(false)} />}
-        <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-gradient-to-bl from-primaryBlue-primary to-violet-900 rounded-lg">
+        <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-gradient-to-bl from-primaryBlue-primary to-violet-900 rounded-lg ">
           <div className="inline-flex flex-col items-center justify-center w-full h-screen gap-8 px-12 py-8 rounded-none shadow-lg md:w-96 md:h-80 bg-zinc-600 md:rounded-lg">
             <h1 className="text-center text-white text-[24px] font-bold leading-tight">{toggleAccountUsage ? "Sign In" : "Welcome!"}</h1>
             <div className="p-[0px] flex-col justify-center items-center gap-4 flex">
