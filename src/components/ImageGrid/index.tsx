@@ -50,16 +50,17 @@ export const ImageGrid = () => {
           const filename = decodedURL.split("/").pop();
           if (filename) {
             const [userID] = filename.split("_");
-            const { username, photoURL } = users[userID] || { username: userID, photoURL: "" };
+            // const { username, photoURL } = users[userID] || { username: userID, photoURL: "" };
+            const { username, photoURL } = { username: userID, photoURL: "" };
             return (
-              <div key={index} className="dark:bg-zinc-700 rounded-lg shadow-xl p-2 space-y-2 justify-center">
+              <div key={index} className="justify-center p-2 space-y-2 rounded-lg shadow-xl dark:bg-zinc-700">
                 <div>
                 <div className="flex items-center justify-between p-2">
                 {username && <p>By {username}</p>} 
                 {photoURL && <img src={photoURL} alt={username} className="h-8 rounded-full"/>}
                 
                 </div>
-                <div className="w-full flex items-center justify-center">
+                <div className="flex items-center justify-center w-full">
                   <img
                     className="rounded"
                     height={200}

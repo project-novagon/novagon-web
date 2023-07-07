@@ -19,8 +19,11 @@ module.exports = {
       fontFamily: {
         albertsans: "'Albert Sans', sans-serif",
         poppins:  "'Poppins', sans-serif",
-        spmono: "'Space Mono', monospace"
+        jbmono: "'JetBrains Mono', monospace"
       },
+      backgroundImage: {
+        'hero-img': "url('/public/img/hero/ameer-basheer-gV6taBJuBTk-unsplash.jpg')"
+      }
     },
   },
 }

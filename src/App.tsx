@@ -13,35 +13,33 @@ import { NvgUI } from "./pages/novagon_ui";
 import { useState } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Profile } from "./pages/profile";
-//// import { ChatRoom } from "./components/chat/chatRoom";
+import ChatRoom from "./pages/chat";
+import { HomeUI, LandingPage } from "./pages/dashboard";
 
-// Initialize Firebase
-// TODO: fix this shit
 console.log("%cStop!",
   "color:red;font-family:'Albert Sans', sans-serif;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
 console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
   "font-weight: 700;",
   "scam."
 )
+
 function App() {
   const [appMenuOpen, setAppMenuOpen] = useState(false);
   return (
     <>
-      <header className='sticky top-0 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
-        <div className="flex items-center space-x-4">
-          <button onClick={() => {
-            setAppMenuOpen(appMenuOpen => !appMenuOpen)
-          }}>
-            <img src="https://novagoncdn.netlify.app/img/nvgweb/Project%20Novagon%20Logo%403x.png" alt="" className="w-16 rounded-lg" />
-          </button>
-          <h1 className='text-xl font-bold font-albertsans md:block hidden'>Novagon Web</h1>
+      <header className='sticky top-0 z-50 flex items-center justify-between gap-0 p-4 dark:bg-zinc-900 bg-zinc-50'>
+        <div className="flex items-center p-0 m-0 space-x-4 bg-transparent">
+            <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="w-16 rounded-lg cursor-pointer" onClick={() => { setAppMenuOpen((appMenuOpen) => !appMenuOpen)
+            console.log(appMenuOpen)}}/>
+
+          <h1 className='hidden text-xl font-bold font-albertsans md:block'>Novagon Web</h1>
         </div>
         <SignOut auth={auth} />
       </header>
       <AppMenu appMenuOpen={appMenuOpen} closeAppMenu={() => setAppMenuOpen(false)} />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ImageUI />} />
+          <Route path="/images" element={<ImageUI />} />
           <Route path="/videos" element={<Videos />} />
           <Route path="/wip" element={<WorkInProgress />} />
           <Route path="*" element={<NotFound />} />
@@ -49,6 +47,9 @@ function App() {
           <Route path="/maintenance" element={<Maintenance />} />
           <Route path="/ui" element={<NvgUI />} />
           <Route path="/profile" element={<ProfileInit />} />
+          <Route path="/chat" element={<ChatUI />} />
+          <Route path="/home" element={<HomeUI/>}/>
+          <Route path="/" element={<LandingPage />}/>
         </Routes>
       </BrowserRouter>
     </>
@@ -56,50 +57,67 @@ function App() {
 }
 
 interface appMenuProps {
-  appMenuOpen: Boolean,
+  appMenuOpen: boolean,
   closeAppMenu: () => void
 }
+
 function AppMenu({ appMenuOpen, closeAppMenu }: appMenuProps) {
   const [user] = useAuthState(auth);
-   if (!appMenuOpen) {
-   return null;
-   }
+  if (!appMenuOpen) {
+    return null;
+  }
   return (
-    <div className="fixed z-50 w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg flex md:justify-start md:items-start justify-center items-center">
-      <div className="dark:bg-gray-secondary bg-white h-screen m-4 md:w-96 w-screen rounded-lg p-4 space-y-4">
+    <div className="fixed z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-50 backdrop-blur-lg md:justify-start md:items-start">
+      <div className="w-screen h-screen p-4 m-4 space-y-4 bg-white rounded-lg dark:bg-gray-secondary md:w-96">
         <button onClick={closeAppMenu}>
-          <XMarkIcon className="w-8 hover:stroke-primaryBlue-primary hover:stroke-2 stroke-1 transition" />
+          <XMarkIcon className="w-8 transition stroke-1 hover:stroke-primaryBlue-primary hover:stroke-2" />
+          <p className="sr-only">Close Menu</p>
         </button>
         {user ?
-          <h1 className="items-center flex gap-1 text-3xl">Hello, <div className="inline-flex justify-center items-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Photo" className="w-8 h-8 rounded-full "/>}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
+          <h1 className="flex items-center gap-1 text-3xl">Hello, <div className="inline-flex items-center justify-center gap-2">{user.photoURL && <img src={user.photoURL} alt="User Profile" className="w-8 h-8 rounded-full " />}{user.displayName ? <h1>{user.displayName}!</h1> : <h1>Guest</h1>}</div></h1> : <h1>Hello!</h1>}
         <div className="block space-y-2">
-          <a href="/" className="block">Images</a>
+          <a href="/home" className="block">Home</a>
+          <a href="/images" className="block">Images</a>
           <a href="/videos" className="block">Videos</a>
-          <a href="/wip" className="block"> [WIP] Chat</a>
-          <a href="/wip" className="md:hidden block">[WIP] QuiShots</a>
+          <a href="/chat" className="block"> [WIP] Chat</a>
+          <a href="/wip" className="block md:hidden">[WIP] QuiShots</a>
           <a href="/profile" className="block">You</a>
         </div>
       </div>
     </div>
   )
 }
+
 function ImageUI() {
   const [user] = useAuthState(auth);
 
   return (
     <>
-      <section className="p-6">
+      <section className="p-0 md:p-6">
         {user ? <ImageMenu user={user} /> : <SignIn />}
       </section>
     </>
   );
 }
+
+function ChatUI() {
+  const [user] = useAuthState(auth);
+
+  return (
+    <>
+      <section className="p-0 md:p-6">
+        {user ? <ChatRoom /> : <SignIn />}
+      </section>
+    </>
+  );
+}
+
 function ProfileInit() {
   const [user] = useAuthState(auth);
 
   return (
     <>
-      <section className="p-6">
+      <section className="p-0 md:p-6">
         {user ? <Profile /> : <SignIn />}
       </section>
     </>
@@ -109,7 +127,7 @@ function Videos() {
   const [user] = useAuthState(auth);
   return (
     <>
-      <section className="p-6">
+      <section className="p-0 md:p-6">
         {user ? <VideoUI /> : <SignIn />}
       </section>
     </>
@@ -120,12 +138,13 @@ function VideoUI() {
 
   return (
     <>
-      <section className="p-6">
+      <section className="p-0 md:p-6">
         {user ? <VideoMenu user={user} /> : <SignIn />}
       </section>
     </>
   )
 }
+
 function NotFound() {
   return (
     <>
