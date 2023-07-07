@@ -2,7 +2,7 @@ import { auth, db } from "../firebase-config";
 import { doc, getDoc, Timestamp, collection, serverTimestamp, query, orderBy, DocumentData, Query, addDoc, CollectionReference } from "firebase/firestore";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -39,6 +39,8 @@ function ChatMessage(props: ChatMessageProps) {
 
   function ChatRoom() {
 
+    const dummy = useRef< null | HTMLSpanElement>(null);
+
     const publicChatRef = collection(db, 'public-room');
 
     const listAllMessages = query(publicChatRef, orderBy('sendDate')) as Query<Message>;
@@ -59,6 +61,10 @@ function ChatMessage(props: ChatMessageProps) {
     photoURL,
     displayName,
   });
+  if (dummy.current != undefined) {
+    // 👉️ TypeScript knows that ref is not null here
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
+  }
   
       setFormValue('');
     };
@@ -74,9 +80,10 @@ function ChatMessage(props: ChatMessageProps) {
                 currentUser={auth.currentUser} // idk what to put here yet
               />
             ))}
+            <span ref={dummy}></span>
         </main>
-  
-        <form onSubmit={sendMessage} className="h-[10vh] sticky bottom-0 py-1 w-screen flex text-xs justify-center">
+
+          <form onSubmit={sendMessage} className="h-[10vh] sticky bottom-0 py-1 w-screen flex text-xs justify-center">
           <input
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
@@ -88,6 +95,7 @@ function ChatMessage(props: ChatMessageProps) {
             <p className="sr-only">send</p>
           </button>
         </form>
+
       </div>
     );
   }
