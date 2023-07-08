@@ -1,11 +1,13 @@
 import { useAuthState } from "react-firebase-hooks/auth"
-import { auth } from "../firebase-config"
+import { auth, guestPFP } from "../firebase-config"
 import { SignIn } from "../components/AuthSys";
 import { Link } from "react-router-dom";
 import { Tab } from "@headlessui/react";
 import { UserCard } from "../components/userCard";
 import { FeatureCard } from "../components/ui/featureCard";
 import { BeakerIcon, CodeBracketSquareIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
+import { SideBar } from "../components/ui/MenusIUI";
 
 function LandingPage() {
     const [user] = useAuthState(auth);
@@ -52,12 +54,11 @@ function HomeUI() {
 }
 
 function Dashboard() {
+    const [sbar, setSbar] = useState(true)
     const [user] = useAuthState(auth);
     return (
             <div className="flex text-white main-content">
-                <main className="h-screen p-5 basis-3/12 bg-slate-900">
-                    <p>Some content</p>
-                </main>
+                <SideBar menuState={sbar}/>
                 <aside className="h-screen p-5 grow bg-slate-800">
                     <p>Some other content</p>
                 </aside>
