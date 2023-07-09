@@ -2,7 +2,7 @@ import { signInAnonymously, signInWithPopup, GithubAuthProvider, GoogleAuthProvi
 import React, { useState } from 'react';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase-config";
-import { UserIcon } from "@heroicons/react/24/outline";
+import { ArrowRightOnRectangleIcon, UserIcon } from "@heroicons/react/24/outline";
 // Initialize Firebase
 
 export function SignIn() {
@@ -144,7 +144,7 @@ export function SignOut({ auth }: SignOutProps) {
       <div className="flex items-center justify-center space-x-4 rounded-full dark:bg-zinc-800 bg-zinc-300">
         {displayName == null ? <p className="ml-6">Guest</p> : <p className="ml-6">{displayName}</p>}
         {photoURL && <img className='rounded-full w-9 h-9' src={photoURL || 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="pfp" />}
-        <button onClick={() => auth.signOut()} className="px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700">Sign Out</button>
+        <button onClick={() => auth.signOut()} className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700"> <ArrowRightOnRectangleIcon className='w-6'/> <p className='hidden sm:block'>Sign Out</p></button>
       </div>
     );
   } else {
