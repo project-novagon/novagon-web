@@ -30,7 +30,7 @@ a {
 }
 
 .button-primary {
-  @apply px-4 py-2 text-sm font-bold rounded-full dark:text-gray-secondary bg-primaryBlue-primary text-zinc-100 hover:bg-primaryBlue-50
+  @apply px-4 py-2 text-sm font-bold rounded-full dark:text-gray-secondary bg-primaryBlue-primary text-zinc-100 hover:bg-primaryBlue-50 hover:text-zinc-300 hover:dark:text-zinc-700
 }
 
 

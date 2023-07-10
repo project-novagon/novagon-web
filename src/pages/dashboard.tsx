@@ -23,7 +23,7 @@ function LandingPage() {
                             <h1 className="text-3xl">Where the ideas are shared.</h1>
                             <p className="flex-wrap w-64 font-jbmono">Novagon Web. The First Open Source Social Media. Built For Everyone</p>
                             <button>
-                                <Link to="/home">Sign In / Up</Link>
+                                <Link to="/home" className="button-primary">Sign In / Up</Link>
                             </button>
                         </div>
                     </div>
@@ -46,7 +46,7 @@ function HomeUI() {
     const [user] = useAuthState(auth);
     return (
         <>
-            <section className="p-0">
+            <section className="">
                 {user ? <Dashboard /> : <SignIn />}
             </section>
         </>
@@ -57,7 +57,7 @@ function Dashboard() {
     const [sbar, setSbar] = useState(true)
     const [user] = useAuthState(auth);
     return (
-            <div className="flex text-white main-content">
+            <div className="flex main-content">
                 <SideBar menuState={sbar}/>
                 <aside className="h-screen p-5 grow bg-slate-800">
                     <p>Some other content</p>

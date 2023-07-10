@@ -48,10 +48,10 @@ function ChatMessage(props: ChatMessageProps) {
     const [messages] = useCollectionData<Message>(listAllMessages);
 
     const [formValue, setFormValue] = useState('');
-  
+
     const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-  
+
   const { uid, photoURL, displayName } = auth.currentUser || {};
 
   await addDoc(publicChatRef, {
@@ -70,8 +70,9 @@ function ChatMessage(props: ChatMessageProps) {
     };
   
     return (
-      <div className="flex w-full h-96">
-        <main className="space-y-4">
+      <div className="flex flex-col w-full h-96">
+        <main className="block space-y-4">
+          <h2 className="text-2xl bg-black/50 p-5 rounded-md shadow-lg sticky top-5 backdrop-blur before:content-['_#']">public-room</h2>
           {messages &&
             messages.map((message: Message) => (
               <ChatMessage
@@ -83,7 +84,7 @@ function ChatMessage(props: ChatMessageProps) {
             <span ref={dummy}></span>
         </main>
 
-          <form onSubmit={sendMessage} className="h-[10vh] sticky bottom-0 py-1 w-screen flex text-xs justify-center">
+          <form onSubmit={sendMessage} className="h-[10vh] sticky bottom-0 py-1 w-screen flex text-xs justify-center items-center">
           <input
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}

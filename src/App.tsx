@@ -31,32 +31,40 @@ function App() {
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="hidden w-16 rounded-xl sm:block" />
             <h2 className="hidden text-2xl md:block">Novagon Web</h2>
           </div>
+          <div className="hidden space-x-3 sm:block">
+            <a href="/">Home</a>
+            <a href="/chat">Chat</a>
+            <a href="/videos">Videos</a>
+            <a href="/images">Images</a>
+          </div>
           <div className="flex items-center justify-center gap-2">
-            <Menu>
-              <Menu.Button>
-                <Squares2X2Icon className="w-8 h-8" />
-              </Menu.Button>
-              <Transition
-        enter="transition duration-100 ease-out"
-        enterFrom="transform scale-95 opacity-0"
-        enterTo="transform scale-100 opacity-100"
-        leave="transition duration-75 ease-out"
-        leaveFrom="transform scale-100 opacity-100"
-        leaveTo="transform scale-95 opacity-0"
-      >
-              <Menu.Items>
-                <Menu.Item>
-                  {({ active }) => (
-                    <a
-                      href="/chat"
-                    >
-                      <ChatBubbleLeftRightIcon/> Chat
-                    </a>
-                  )}
-                </Menu.Item>
-              </Menu.Items>
-              </Transition>
-            </Menu>
+            <div className="block sm:hidden">
+              <Menu>
+                <Menu.Button>
+                  <Squares2X2Icon className="w-8 h-8" />
+                </Menu.Button>
+                <Transition
+                  enter="transition duration-100 ease-out"
+                  enterFrom="transform scale-95 opacity-0"
+                  enterTo="transform scale-100 opacity-100"
+                  leave="transition duration-75 ease-out"
+                  leaveFrom="transform scale-100 opacity-100"
+                  leaveTo="transform scale-95 opacity-0"
+                >
+                  <Menu.Items>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          href="/chat"
+                        >
+                          <ChatBubbleLeftRightIcon /> Chat
+                        </a>
+                      )}
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            </div>
             <SignOut auth={auth} />
           </div>
         </nav>
