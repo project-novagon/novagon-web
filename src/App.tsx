@@ -15,6 +15,7 @@ import ChatRoom from "./pages/chat";
 import { HomeUI, LandingPage } from "./pages/dashboard";
 import { Menu, Transition } from "@headlessui/react";
 import { getAuth } from "firebase/auth";
+import { SignInSection } from "./components/ui/signinsection";
 
 console.log("%cStop!",
   "color:red;font-family:'Albert Sans', sans-serif;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
@@ -72,7 +73,7 @@ function App() {
           <Route path="/ui" element={<NvgUI />} />
           <Route path="/profile" element={<ProfileInit />} />
           <Route path="/chat" element={<ChatUI />} />
-          <Route path="/home" element={<HomeUI />} />
+          <Route path="/home" element={<SignInSection className="p-0 md:p-6" />} />
           <Route path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>

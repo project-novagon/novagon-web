@@ -1,6 +1,6 @@
 {
-  "name": "polysearch",
-  "version": "0.1.0",
+  "name": "novagon-web",
+  "version": "nover",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.15",
