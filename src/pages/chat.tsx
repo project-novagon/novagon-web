@@ -70,7 +70,7 @@ function ChatMessage(props: ChatMessageProps) {
     };
   
     return (
-      <div className="flex flex-col w-full p-6 md:p-0">
+      <div className="flex flex-col w-screen h-screen p-6 md:p-0">
         <main className="block space-y-4">
           <h2 className="text-2xl bg-black/50 p-5 rounded-md shadow-lg sticky top-5 backdrop-blur before:content-['_#']">public-room</h2>
           {messages &&
@@ -84,7 +84,7 @@ function ChatMessage(props: ChatMessageProps) {
             <span ref={dummy}></span>
         </main>
 
-          <form onSubmit={sendMessage} className="h-[10vh] sticky bottom-0 py-1 w-screen flex text-xs justify-center items-center">
+          <form onSubmit={sendMessage} className="sticky flex items-center justify-center bottom-20">
           <input
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}

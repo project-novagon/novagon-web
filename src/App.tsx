@@ -28,7 +28,7 @@ function App() {
   const [user] = useAuthState(auth);
   return (
     <div className="flex flex-col-reverse sm:flex-col">
-      <header className="fixed w-screen px-5 py-0 bg-white dark:bg-zinc-900 sm:relative">
+      <header className="fixed w-full px-5 py-0 bg-white dark:bg-zinc-900 sm:relative">
         <nav className="flex flex-row flex-wrap items-center justify-center w-full py-6 mx-auto sm:justify-between">
           <div className="flex items-center space-x-4">
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="hidden w-16 rounded-xl sm:block" />
