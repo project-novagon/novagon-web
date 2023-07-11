@@ -70,7 +70,7 @@ function ChatMessage(props: ChatMessageProps) {
     };
   
     return (
-      <div className="flex flex-col w-full h-96">
+      <div className="flex flex-col w-full p-6 md:p-0">
         <main className="block space-y-4">
           <h2 className="text-2xl bg-black/50 p-5 rounded-md shadow-lg sticky top-5 backdrop-blur before:content-['_#']">public-room</h2>
           {messages &&
