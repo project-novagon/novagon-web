@@ -42,9 +42,10 @@ function Profile() {
                         <div>
                             <h3 className="text-xl">User ID</h3>
                             <p>{user?.uid}</p>
+                            <p>ONLY SEND THIS TO NOVAGON SUPPORT!!!</p>
                         </div>}
                     <button onClick={() => auth.signOut()} className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700">Sign Out</button>
-                    <h2 className="text-2xl">Danger Zone</h2>
+                    {/*<h2 className="text-2xl">Danger Zone</h2>*/}
                 </div>
             </div>
         </>
