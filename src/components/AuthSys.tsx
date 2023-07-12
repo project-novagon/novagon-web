@@ -180,3 +180,5 @@ export function BannedPopup({ isBanned, onClose }: BannedPopupProps) {
     </div>
   );
 }
+
+export {signInWithPopup}
