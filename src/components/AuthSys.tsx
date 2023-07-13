@@ -68,7 +68,7 @@ export function SignIn() {
   return (
     <>
       {isBanned && <BannedPopup isBanned={isBanned} onClose={() => setIsBanned(false)} />}
-      <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-gradient-to-bl from-primaryBlue-primary to-violet-900 rounded-lg md:p-6 p-0">
+      <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-gradient-to-bl from-violet-500 to-violet-900 rounded-lg md:p-6 p-0">
         <div className="inline-flex flex-col items-center justify-center w-full h-screen gap-8 px-12 py-8 rounded-none shadow-lg md:w-96 md:h-80 bg-zinc-600 md:rounded-lg">
           <h1 className="text-center text-white text-[24px] font-bold leading-tight">{toggleAccountUsage ? "Sign In" : "Welcome!"}</h1>
           <div className="p-[0px] flex-col justify-center items-center gap-4 flex">
@@ -122,7 +122,7 @@ export function SignIn() {
             </button>
           </div>
           <div className="p-[0px] flex-col justify-start items-start gap-[10px] flex">
-            <p className="text-center">{toggleAccountUsage ? "Don't have a account?" : "Have an account?"} <button className="p-0 m-0 text-black underline transition-all bg-transparent hover:bg-transparent dark:text-white hover:text-primaryBlue-primary" onClick={() => setAccountUsage(toggleAccountUsage => !toggleAccountUsage)}>{toggleAccountUsage ? "Sign Up" : "Sign In"}</button></p>
+            <p className="text-center">{toggleAccountUsage ? "Don't have a account?" : "Have an account?"} <button className="p-0 m-0 text-black underline transition-all bg-transparent hover:bg-transparent dark:text-white hover:text-violet-500" onClick={() => setAccountUsage(toggleAccountUsage => !toggleAccountUsage)}>{toggleAccountUsage ? "Sign Up" : "Sign In"}</button></p>
           </div>
         </div>
       </div>
@@ -144,7 +144,7 @@ export function SignOut({ auth }: SignOutProps) {
       <div className="flex items-center justify-center space-x-4 rounded-full dark:bg-zinc-800 bg-zinc-300">
         {displayName == null ? <p className="ml-6">Guest</p> : <p className="ml-6">{displayName}</p>}
         {photoURL && <img className='rounded-full w-9 h-9' src={photoURL || 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="pfp" />}
-        <button onClick={() => auth.signOut()} className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700"> <ArrowRightOnRectangleIcon className='w-6'/> <p className='hidden sm:block'>Sign Out</p></button>
+        <button onClick={() => auth.signOut()} className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-full dark:bg-secGray-secondary text-violet-500 bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700"> <ArrowRightOnRectangleIcon className='w-6'/> <p className='hidden sm:block'>Sign Out</p></button>
       </div>
     );
   } else {
@@ -166,7 +166,7 @@ export function BannedPopup({ isBanned, onClose }: BannedPopupProps) {
       <div className="space-y-2">
         <div className="flex items-center justify-between p-2 space-x-16 rounded-full dark:bg-zinc-800 bg-zinc-300">
           <h2 className="self-center ml-2 text-2xl font-bold">Account Banned</h2>
-          <button onClick={onClose} className="w-16 h-8 text-sm font-bold transition-all rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">
+          <button onClick={onClose} className="w-16 h-8 text-sm font-bold transition-all rounded-full dark:bg-secGray-secondary text-violet-500 bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-500">
             Close
           </button>
         </div>
