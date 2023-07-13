@@ -32,7 +32,7 @@ function App() {
         <nav className="flex flex-row flex-wrap items-center justify-center w-full py-6 mx-auto sm:justify-between">
           <div className="flex items-center space-x-4">
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="hidden w-16 rounded-xl sm:block" />
-            <h2 className="hidden text-2xl lg:block">Novagon Web</h2><p className="hidden px-4 uppercase rounded dark:bg-zinc-700 md:block">prev</p>
+            <h2 className="hidden text-2xl lg:block">Novagon Web</h2><p className="hidden px-4 uppercase rounded dark:bg-zinc-700 md:block bg-zinc-300">prev</p>
           </div>
           <div className="hidden space-x-3 sm:block">
             <a href="/">Home</a>
@@ -147,9 +147,9 @@ function NotFound() {
             <QuestionMarkCircleIcon className="w-9" />
           </div>
           <div>
-            <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">404</h1>
+            <h1 className="text-4xl font-bold transition-all hover:text-violet-500">404</h1>
             <p>Not Found</p>
-            <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
+            <a href="/" className="text-violet-500 transition hover:underline">Go Back</a>
           </div>
         </div>
       </div>
@@ -165,9 +165,9 @@ function WorkInProgress() {
             <QuestionMarkCircleIcon className="w-9" />
           </div>
           <div>
-            <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">501</h1>
+            <h1 className="text-4xl font-bold transition-all hover:text-violet-500">501</h1>
             <p>Work in progress</p>
-            <a href="/" className="transition hover:underline text-primaryBlue-primary">Go Back</a>
+            <a href="/" className="text-violet-500 transition hover:underline">Go Back</a>
           </div>
         </div>
       </div>
@@ -183,7 +183,7 @@ function Maintenance() {
             <QuestionMarkCircleIcon className="w-9" />
           </div>
           <div>
-            <h1 className="text-4xl font-bold transition-all hover:text-primaryBlue-primary">503</h1>
+            <h1 className="text-4xl font-bold transition-all hover:text-violet-500">503</h1>
             <p>Hey There! Novagon Web is temporarely down for maintenance.</p>
           </div>
         </div>

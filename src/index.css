@@ -10,15 +10,15 @@ h1, h2, h3, button {
   @apply font-albertsans font-bold
 }
 
-a {
-  @apply hover:text-primaryBlue-primary transition-all
+.link {
+  @apply hover:text-violet-500 transition-all
 }
 .message {
   @apply flex items-center space-x-2 ;
 }
 
 .sent p {
-  @apply p-1 px-2 break-all rounded-md bg-primaryBlue-primary dark:bg-gray-secondary justify-self-end;
+  @apply p-1 px-2 break-all rounded-md bg-violet-500 dark:bg-secGray-secondary justify-self-end;
 }
 
 .received p {
@@ -26,16 +26,16 @@ a {
 }
 
 .button-secondary {
-  @apply px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700
+  @apply px-4 py-2 text-sm font-bold rounded-full dark:bg-secGray-secondary text-violet-500 bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700 font-albertsans
 }
 
 .button-primary {
-  @apply px-4 py-2 text-sm font-bold rounded-full dark:text-gray-secondary bg-primaryBlue-primary text-zinc-100 hover:bg-primaryBlue-50 hover:text-zinc-300 hover:dark:text-zinc-700
+  @apply px-4 py-2 text-sm font-bold rounded-full bg-violet-500 text-white hover:text-zinc-50 hover:bg-violet-600 font-albertsans
 }
 
 
 .input-search {
-  @apply w-96 p-2 border-2 dark:border-zinc-500 border-zinc-700 rounded-md focus:outline-primaryBlue-primary dark:bg-zinc-900
+  @apply w-96 p-2 border-2 dark:border-zinc-500 border-zinc-700 rounded-md focus:outline-violet-500 dark:bg-zinc-900
 }
 
 .sign-in-btn {
