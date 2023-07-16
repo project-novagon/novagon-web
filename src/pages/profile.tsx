@@ -1,6 +1,6 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, guestPFP } from "../firebase-config";
-import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
 import { GithubAuthProvider, ProviderId, deleteUser, reauthenticateWithCredential } from "firebase/auth";
 
 function Profile() {

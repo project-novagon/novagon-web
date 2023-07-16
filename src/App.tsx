@@ -2,7 +2,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { SignIn, SignOut } from "./components/AuthSys";
 import { ImageMenu } from "./components/mainMenu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ChatBubbleLeftRightIcon, ChevronDownIcon, HomeIcon, PhotoIcon, QuestionMarkCircleIcon, Squares2X2Icon, VideoCameraIcon } from "@heroicons/react/24/outline"
+import { ChatBubbleLeftRightIcon, ChevronDownIcon, HomeIcon, PhotoIcon, QuestionMarkCircleIcon, Squares2X2Icon, VideoCameraIcon } from "@heroicons/react/24/solid"
 import { VideoMenu } from "./components/mainMenu";
 import "firebase/firestore";
 import "firebase/auth";

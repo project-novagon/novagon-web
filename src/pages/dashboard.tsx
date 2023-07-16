@@ -8,7 +8,7 @@ import { FeatureCard } from "../components/ui/featureCard";
 import { ArchiveBoxXMarkIcon, BeakerIcon, CodeBracketSquareIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { SideBar } from "../components/ui/MenusIUI";
-import { BanknotesIcon } from "@heroicons/react/24/outline";
+import { BanknotesIcon } from "@heroicons/react/24/solid";
 
 function LandingPage() {
     const [user] = useAuthState(auth);

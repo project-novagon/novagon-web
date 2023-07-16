@@ -2,7 +2,7 @@ import { signInAnonymously, signInWithPopup, GithubAuthProvider, GoogleAuthProvi
 import React, { useState } from 'react';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase-config";
-import { ArrowRightOnRectangleIcon, UserIcon } from "@heroicons/react/24/outline";
+import { ArrowRightOnRectangleIcon, UserIcon } from "@heroicons/react/24/solid";
 // Initialize Firebase
 
 export function SignIn() {
