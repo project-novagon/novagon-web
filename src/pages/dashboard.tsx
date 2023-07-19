@@ -24,7 +24,7 @@ function LandingPage() {
                             <div className="p-4 m-16 space-y-4 text-white transition-all rounded-xl">
                                 <h1 className="text-3xl">Where the ideas are shared.</h1>
                                 <p className="flex-wrap w-64 font-jbmono">Novagon Web. The First Open Source Social Media. Built For Everyone</p>
-                                <Link to="/home">Sign In / Up</Link>
+                                <Link to="/home" className="button-primary">Sign In / Up</Link>
                             </div>
                         </div>
                     </div>
