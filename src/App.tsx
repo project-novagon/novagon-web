@@ -19,7 +19,7 @@ import { SignInSection } from "./components/ui/signinsection";
 
 console.log("%cStop!",
   "color:red;font-family:'Albert Sans', sans-serif;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
-console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
+console.log("This is a Browser Feature made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
   "font-weight: 700;",
   "scam."
 )
@@ -32,7 +32,7 @@ function App() {
         <nav className="flex flex-row flex-wrap items-center justify-center w-full py-6 mx-auto sm:justify-between">
           <div className="flex items-center space-x-4">
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="hidden w-16 rounded-xl sm:block" />
-            <h2 className="hidden text-2xl lg:block">Novagon Web</h2><p className="hidden px-4 uppercase rounded dark:bg-zinc-700 md:block bg-zinc-300">prev</p>
+            <h2 className="hidden text-2xl lg:block">Novagon Web</h2><p className="hidden px-4 uppercase rounded dark:bg-zinc-700 md:block bg-zinc-300">DEV</p>
           </div>
           <div className="hidden space-x-3 sm:block">
             <a href="/">Home</a>
