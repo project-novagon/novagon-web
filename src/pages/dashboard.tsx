@@ -33,7 +33,7 @@ function LandingPage() {
                         <div className="grid gap-4 md:grid-cols-2">
                             <FeatureCard Title="Open" iconJSX={<CodeBracketSquareIcon className="w-8" />} Desc="Novagon Web is Open-Source, that means anyone can help make Novagon Web better" />
                             <FeatureCard Title="Maintained" iconJSX={<ArchiveBoxXMarkIcon className="w-8" />} Desc="Novagon Web is updated daily by the novagon staff!" />
-                            <FeatureCard Title="100% Free" iconJSX={<BanknotesIcon className="w-8" />} Desc="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam earum dolorem nemo repellat sint aspernatur maxime minus, perferendis quos nisi ullam beatae? In alias quas nostrum officia corrupti, ab ullam!" />
+                            <FeatureCard Title="100% Free" iconJSX={<BanknotesIcon className="w-8" />} Desc="Novagon web is completely free to use! but if you do want to support us you can subcribe to novagon+!" />
                             <FeatureCard Title="Lorem ipsum" iconJSX={<BeakerIcon className="w-8" />} Desc="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam earum dolorem nemo repellat sint aspernatur maxime minus, perferendis quos nisi ullam beatae? In alias quas nostrum officia corrupti, ab ullam!" />
                         </div>
                     </div>
