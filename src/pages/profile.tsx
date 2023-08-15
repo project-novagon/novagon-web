@@ -34,12 +34,5 @@ function Profile() {
     )
 }
 
-function EditProfile(){
-    return(
-        <>
-
-        </>
-    )
-}
 
 export { Profile };
