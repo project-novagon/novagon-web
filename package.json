@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@catppuccin/tailwindcss": "^0.1.6",
     "@types/react-modal": "^3.16.0",
     "@types/uuid": "^8.3.4"
   }
