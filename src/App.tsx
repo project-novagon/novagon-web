@@ -37,8 +37,8 @@ function App() {
             <a href="/chat"><ChatBubbleEmpty className="w-8 h-8 m-0 "/></a>
             <a href="/videos"><MediaVideo className="w-8 h-8 m-0 "/></a>
             <a href="/images"><MediaImage className="w-8 h-8 m-0 "/></a>
+            <a href="/profile"><img src={guestPFP} alt="" className="block w-8 h-8 rounded-full sm:hidden"/></a>
           </div>
-            <a href="/profile"><img src={guestPFP} alt="" className="w-8 h-8 rounded-full"/></a>
           <div className="items-center justify-center hidden gap-2 sm:flex ">
             <SignOut auth={auth} />
           </div>

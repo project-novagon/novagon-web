@@ -54,13 +54,19 @@ function ChatMessage(props: ChatMessageProps) {
 
   const { uid, photoURL, displayName } = auth.currentUser || {};
 
-  await addDoc(publicChatRef, {
-    text: formValue,
-    sendDate: serverTimestamp(),
-    uid,
-    photoURL,
-    displayName,
-  });
+  if(formValue.match(/^\s*$/mg)){
+    console.log("enter a message")
+  }
+  else{
+    await addDoc(publicChatRef, {
+      text: formValue,
+      sendDate: serverTimestamp(),
+      uid,
+      photoURL,
+      displayName,
+    });
+  }
+
   if (dummy.current != undefined) {
     // 👉️ TypeScript knows that ref is not null here
     dummy.current.scrollIntoView({ behavior: 'smooth' });
