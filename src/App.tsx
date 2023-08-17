@@ -79,9 +79,8 @@ function App() {
           <Route path="/maintenance" element={<Maintenance />} />
           <Route path="/profile" element={<ProfileInit />} />
           <Route path="/chat" element={<ChatUI />} />
-          <Route path="/home" element={<HomeUI />} />
           <Route path="/settings" element={<WorkInProgress/>} />
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<HomeUI />} />
         </Routes>
       </BrowserRouter>
     </>
