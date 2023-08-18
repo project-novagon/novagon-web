@@ -7,6 +7,8 @@ import { UserCard } from "../components/userCard";
 import { FeatureCard } from "../components/ui/featureCard";
 import { BeakerIcon, CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { ImageGrid } from "../components/ImageGrid";
+import { VideoGrid } from "../components/videoGrid";
 
 function LandingPage() {
     const [user] = useAuthState(auth);
@@ -57,7 +59,7 @@ function Dashboard() {
     const [user] = useAuthState(auth);
     return (
             <div className="p-3">
-            <h1 className="block text-3xl sm:hidden">Hello, {user?.displayName ? user.displayName : "Guest"}</h1>
+            <h1 className="hidden text-3xl sm:block">Hello, {user?.displayName ? user.displayName : "Guest"}</h1>
             </div>
     )
 }
