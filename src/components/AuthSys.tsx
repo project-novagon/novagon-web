@@ -65,13 +65,12 @@ export function SignIn() {
         }
       });
   };
-  const [toggleAccountUsage, setAccountUsage] = useState(false);
   return (
     <>
       {isBanned && <BannedPopup isBanned={isBanned} onClose={() => setIsBanned(false)} />}
-      <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-gradient-to-bl from-mauve to-violet-900 rounded-lg ">
-        <div className="inline-flex flex-col items-center justify-center w-full h-screen gap-8 px-12 py-8 rounded-none shadow-lg md:w-96 md:h-80 dark:bg-base bg-subtext1 md:rounded-2xl">
-          <h1 className="text-center text-white text-[24px] font-bold leading-tight">{toggleAccountUsage ? "Sign In" : "Welcome!"}</h1>
+      <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-gradient-to-bl from-primaryBlue-primary to-logoPink">
+        <div className="inline-flex flex-col items-center justify-center w-full h-screen gap-8 px-12 py-8 border-2 rounded-none shadow-lg md:w-96 md:h-80 dark:bg-base/50 bg-subtext1/50 dark:border-surface0 border-overlay2 md:rounded-2xl">
+          <h1 className="text-center text-white text-[24px] font-bold leading-tight">Sign In</h1>
           <div className="p-[0px] flex-col justify-center items-center gap-4 flex">
             <button className="sign-in-btn button-secondary" onClick={signInAsGuest}>
               <UserCircle className="w-6 h-6" />
@@ -87,7 +86,6 @@ export function SignIn() {
             </button>
           </div>
           <div className="p-[0px] flex-col justify-start items-start gap-[10px] flex">
-            <p className="text-center">{toggleAccountUsage ? "Don't have a account?" : "Have an account?"} <button className="p-0 m-0 text-black underline transition-all bg-transparent hover:bg-transparent dark:text-white hover:text-mauve" onClick={() => setAccountUsage(toggleAccountUsage => !toggleAccountUsage)}>{toggleAccountUsage ? "Sign Up" : "Sign In"}</button></p>
           </div>
         </div>
       </div>
@@ -113,9 +111,7 @@ export function SignOut({ auth }: SignOutProps) {
       </div>
     );
   } else {
-    return (
-      <button onClick={() => auth.signOut()} className="button-secondary"> <LogOut className='w-6'/> <p className='sr-only'>Sign Out</p></button>
-    );
+    return null
   }
 }
 

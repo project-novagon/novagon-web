@@ -15,6 +15,7 @@ module.exports = {
           secondary: '#404040',
           100: '#A8A8A8',
         },
+        logoPink: '#F000BB'
       },
       fontFamily: {
         albertsans: "'Albert Sans', sans-serif",
