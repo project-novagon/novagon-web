@@ -15,6 +15,7 @@ import ChatRoom from "./pages/chat";
 import { HomeUI, LandingPage } from "./pages/dashboard";
 import { Menu, Transition } from "@headlessui/react";
 import { ChatBubbleEmpty, Home, HomeSimple, Iconoir, MediaImage, MediaVideo } from "iconoir-react";
+import { SettingsRouter } from "./pages/settings";
 
 console.log("%cStop!",
   "color:red;font-family:'Albert Sans', sans-serif;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
@@ -54,7 +55,7 @@ function App() {
           <Route path="/maintenance" element={<Maintenance />} />
           <Route path="/profile" element={<ProfileInit />} />
           <Route path="/chat" element={<ChatUI />} />
-          <Route path="/settings" element={<WorkInProgress/>} />
+          <Route path="/settings" element={<SettingsRouter/>} />
           <Route path="/" element={<HomeUI />} />
         </Routes>
       </BrowserRouter>
