@@ -69,7 +69,7 @@ export function SignIn() {
     <>
       {isBanned && <BannedPopup isBanned={isBanned} onClose={() => setIsBanned(false)} />}
       <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-gradient-to-bl from-primaryBlue-primary to-logoPink">
-        <div className="inline-flex flex-col items-center justify-center w-full h-screen gap-8 px-12 py-8 border-2 rounded-none shadow-lg md:w-96 md:h-80 dark:bg-base/50 bg-subtext1/50 dark:border-surface0 border-overlay2 md:rounded-2xl">
+        <div className="inline-flex flex-col items-center justify-center w-full h-screen gap-8 px-12 py-8 border-2 rounded-none shadow-lg md:w-96 md:h-80 dark:bg-base bg-subtext1 dark:border-surface0 border-overlay2 md:rounded-2xl">
           <h1 className="text-center text-white text-[24px] font-bold leading-tight">Sign In</h1>
           <div className="p-[0px] flex-col justify-center items-center gap-4 flex">
             <button className="sign-in-btn button-secondary" onClick={signInAsGuest}>
