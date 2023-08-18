@@ -97,7 +97,7 @@ function ChatMessage(props: ChatMessageProps) {
             placeholder="Type your message..."
             className="h-16 px-4 m-1 text-lg leading-3 border-none rounded-md shadow-sm opacity-100 w-96 font-albertsans ring-4 bg-zinc-300 dark:bg-zinc-500 ring-zinc-400 dark:ring-zinc-600 ring-inset focus:ring-zinc-500 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:ring-4"
           />
-          <button type="submit" className="w-16 h-16 px-5 transition-all rounded-md shadow-sm dark:bg-zinc-600 bg-violet-500 hover:shadow-lg">
+          <button type="submit" className="w-16 h-16 px-5 transition-all rounded-md shadow-sm dark:bg-zinc-600 bg-mauve hover:shadow-lg">
             <PaperAirplaneIcon className="send-icon" />
             <p className="sr-only">send</p>
           </button>

@@ -53,11 +53,11 @@ export const UploadVideo = ({ user }: Props) => {
           form="img"
           name="image"
           onChange={imgHandler}
-          className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold dark:file:bg-gray-secondary file:text-violet-500 dark:hover:file:bg-zinc-700 hover:file:bg-zinc-200 file:bg-zinc-100"
+          className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold dark:file:bg-gray-secondary file:text-mauve dark:hover:file:bg-zinc-700 hover:file:bg-zinc-200 file:bg-zinc-100"
           multiple
           />
           </label>
-        {vid && <button className="px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-violet-500 bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700" type="submit">Upload Image</button>}
+        {vid && <button className="px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-mauve bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700" type="submit">Upload Image</button>}
       </form>
     </div>
   );

@@ -58,7 +58,7 @@ function Dashboard() {
     const [sbar, setSbar] = useState(true)
     const [user] = useAuthState(auth);
     return (
-            <div className="p-3">
+            <div className="p-4">
             <h1 className="hidden text-3xl sm:block">Hello, {user?.displayName ? user.displayName : "Guest"}</h1>
             </div>
     )
