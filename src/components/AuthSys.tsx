@@ -68,26 +68,27 @@ export function SignIn() {
   return (
     <>
       {isBanned && <BannedPopup isBanned={isBanned} onClose={() => setIsBanned(false)} />}
-      <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-gradient-to-bl from-primaryBlue-primary to-logoPink">
-        <div className="inline-flex flex-col items-center justify-center w-full h-screen gap-8 px-12 py-8 rounded-none shadow-lg md:w-96 md:h-80 dark:bg-base bg-subtext1 md:rounded-2xl">
-          <h1 className="text-center text-white text-[24px] leading-tight">Sign In</h1>
-          <div className="p-[0px] flex-col justify-center items-center gap-4 flex">
-            <button className="sign-in-btn button-secondary" onClick={signInAsGuest}>
-              <UserCircle className="w-6 h-6" />
-              Try Novagon Web
-            </button>
-            <button className="sign-in-btn button-secondary" onClick={signInWithGitHub}>
-              <GithubCircle className='w-6 h-6'/>
-              Sign in with GitHub
-            </button>
-            <button className="sign-in-btn button-secondary" onClick={signInWithGoogle}>
-              <GoogleCircle className='w-6 h-6'/>
-              Sign in with Google
-            </button>
+      <div className="md:h-[86vh] h-[90vh] w-full flex justify-center md:items-center  items-end flex-col bg-nw-login bg-cover">
+          <div className="inline-flex flex-col items-center justify-center w-full h-screen gap-8 p-12 rounded-none shadow-lg md:w-96 md:h-80 dark:bg-base bg-subtext backdrop-blur-lg md:rounded-2xl">
+            <h2 className="text-2xl leading-tight text-center text-white before:content-more-than">Sign In</h2>
+            <div className="p-[0px] flex-col justify-center items-center gap-4 flex">
+              <button className="sign-in-btn button-secondary" onClick={signInAsGuest}>
+                <UserCircle className="w-6 h-6" />
+                Try Novagon Web
+              </button>
+              <button className="sign-in-btn button-secondary" onClick={signInWithGitHub}>
+                <GithubCircle className='w-6 h-6'/>
+                Sign in with GitHub
+              </button>
+              <button className="sign-in-btn button-secondary" onClick={signInWithGoogle}>
+                <GoogleCircle className='w-6 h-6'/>
+                Sign in with Google
+              </button>
+            </div>
+            <div className="p-[0px] flex-col justify-start items-start gap-[10px] flex">
+            </div>
           </div>
-          <div className="p-[0px] flex-col justify-start items-start gap-[10px] flex">
-          </div>
-        </div>
+
       </div>
     </>
   );

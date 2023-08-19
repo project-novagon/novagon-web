@@ -23,7 +23,11 @@ module.exports = {
         jbmono: "'JetBrains Mono', monospace"
       },
       backgroundImage: {
-        'hero-img': "url('/public/img/hero/ameer-basheer-gV6taBJuBTk-unsplash.jpg')"
+        'hero-img': "url('/public/img/hero/ameer-basheer-gV6taBJuBTk-unsplash.jpg')",
+        'nw-login': "url('/public/img/nw_wallpaper.png')"
+      },
+      content: {
+        'more-than': "_>_"
       }
     },
   },
