@@ -7,7 +7,8 @@ import { UserCard } from "../components/userCard";
 import { FeatureCard } from "../components/ui/featureCard";
 import { BeakerIcon, CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { SideBar } from "../components/ui/MenusIUI";
+import { ImageGrid } from "../components/ImageGrid";
+import { VideoGrid } from "../components/videoGrid";
 
 function LandingPage() {
     const [user] = useAuthState(auth);
@@ -57,11 +58,8 @@ function Dashboard() {
     const [sbar, setSbar] = useState(true)
     const [user] = useAuthState(auth);
     return (
-            <div className="flex main-content">
-                <SideBar menuState={sbar}/>
-                <aside className="h-screen p-5 grow bg-slate-800">
-                    <p>Some other content</p>
-                </aside>
+            <div className="p-4">
+            <h1 className="hidden text-3xl sm:block">Hello, {user?.displayName ? user.displayName : "Guest"}</h1>
             </div>
     )
 }

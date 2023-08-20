@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply h-screen bg-white dark:bg-zinc-800 dark:text-white font-poppins;
+  @apply h-screen bg-white dark:bg-base dark:text-text font-poppins;
 }
 
 h1, h2, h3, button {
@@ -11,14 +11,14 @@ h1, h2, h3, button {
 }
 
 a {
-  @apply hover:text-primaryBlue-primary transition-all
+  @apply hover:text-mauve transition-all
 }
 .message {
   @apply flex items-center space-x-2 ;
 }
 
 .sent p {
-  @apply p-1 px-2 break-all rounded-md bg-primaryBlue-primary dark:bg-gray-secondary justify-self-end;
+  @apply p-1 px-2 break-all rounded-md bg-mauve dark:bg-gray-secondary justify-self-end;
 }
 
 .received p {
@@ -26,16 +26,16 @@ a {
 }
 
 .button-secondary {
-  @apply px-4 py-2 text-sm font-bold rounded-full dark:bg-gray-secondary text-primaryBlue-primary bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700
+  @apply px-4 py-2 text-sm font-bold rounded-full dark:bg-surface0 text-mauve bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-surface1
 }
 
 .button-primary {
-  @apply px-4 py-2 text-sm font-bold rounded-full dark:text-gray-secondary bg-primaryBlue-primary text-zinc-100 hover:bg-primaryBlue-50 hover:text-zinc-300 hover:dark:text-zinc-700
+  @apply px-4 py-2 text-sm font-bold rounded-full dark:text-surface0 bg-mauve text-zinc-100 hover:bg-violet-400 hover:text-zinc-300 hover:dark:text-surface1
 }
 
 
 .input-search {
-  @apply w-96 p-2 border-2 dark:border-zinc-500 border-zinc-700 rounded-md focus:outline-primaryBlue-primary dark:bg-zinc-900
+  @apply w-96 p-2 border-2 dark:border-zinc-500 border-zinc-700 rounded-md focus:outline-mauve dark:bg-zinc-900
 }
 
 .sign-in-btn {

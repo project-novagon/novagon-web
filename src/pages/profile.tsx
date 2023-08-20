@@ -7,7 +7,7 @@ function Profile() {
         <>
             <div className="space-y-3">
                 <h1 className="text-3xl">Hello, {user?.displayName ? <h1 className="inline">{user.displayName}</h1> : <><h1 className="inline">Guest</h1></>}!</h1>
-                {user?.photoURL ? <img src={user.photoURL} alt="User Profile Picture" className="w-32 transition-all border-4 rounded-lg shadow-lg dark:border-white hover:border-primaryBlue-primary" /> : <img src="https://novagoncdn.netlify.app/img/guest_pfp.png" alt="Guest Profile Picture" className="w-32 transition-all border-4 rounded-lg shadow-lg dark:border-white hover:border-primaryBlue-primary" />}
+                {user?.photoURL ? <img src={user.photoURL} alt="User Profile Picture" className="w-32 transition-all border-4 rounded-lg shadow-lg dark:border-white hover:border-mauve" /> : <img src="https://novagoncdn.netlify.app/img/guest_pfp.png" alt="Guest Profile Picture" className="w-32 transition-all border-4 rounded-lg shadow-lg dark:border-white hover:border-mauve" />}
             </div>
             <div>
                 <h2 className="text-2xl">Info</h2>
