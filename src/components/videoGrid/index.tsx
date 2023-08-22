@@ -52,7 +52,7 @@ export const VideoGrid = () => {
             const [userID] = filename.split("_");
             const { username, photoURL } = users[userID] || { username: userID, photoURL: "" };
             return (
-              <div key={index} className="dark:bg-zinc-700 rounded-lg shadow-xl p-2 space-y-2 justify-center items-center">
+              <div key={index} className=" bg-zinc-700 rounded-lg shadow-xl p-2 space-y-2 justify-center items-center">
                 <div>
                 <div className="w-full flex items-center justify-center">
                   <video

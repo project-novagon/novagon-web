@@ -1,5 +1,5 @@
 import { useAuthState } from "react-firebase-hooks/auth";
-import { SignIn, SignOut } from "./components/AuthSys";
+import { SignIn, UserMenu } from "./components/AuthSys";
 import { ImageMenu } from "./components/mainMenu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChatBubbleLeftRightIcon, QuestionMarkCircleIcon, Squares2X2Icon } from "@heroicons/react/24/outline"
@@ -27,7 +27,7 @@ console.log("This is a Browser Featuer made for Developers. \nif someone asks yo
 function App() {
   return (
     <div className="flex flex-col-reverse md:flex-col">
-      <header className="sticky top-0 w-full px-5 py-0 m-0 bg-white rounded-none sm:rounded-md sm:m-1 dark:bg-mantle">
+      <header className="sticky top-0 w-full px-5 py-0 m-0 rounded-none sm:rounded-md sm:m-1 bg-mantle">
         <nav className="flex flex-row flex-wrap items-center justify-center w-full py-6 mx-auto sm:justify-between">
           <div className="flex items-center space-x-4">
             <img src="https://novagoncdn.netlify.app/logo/nvgweb/Novagon%20Web%403x.png" alt="Novagon Logo" className="hidden w-16 rounded-xl sm:block" />
@@ -41,7 +41,7 @@ function App() {
             <a href="/profile"><img src={guestPFP} alt="" className="block w-8 h-8 rounded-full sm:hidden"/></a>
           </div>
           <div className="items-center justify-center hidden gap-2 sm:flex ">
-            <SignOut auth={auth} />
+            <UserMenu auth={auth} />
           </div>
         </nav>
       </header>

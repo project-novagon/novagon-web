@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply h-screen bg-white dark:bg-base dark:text-text font-poppins;
+  @apply h-screen bg-white bg-base text-text font-poppins dark:mocha latte;
 }
 
 h1, h2, h3, button {
@@ -18,24 +18,24 @@ a {
 }
 
 .sent p {
-  @apply p-1 px-2 break-all rounded-md bg-mauve dark:bg-surface2 justify-self-end;
+  @apply p-1 px-2 break-all rounded-md bg-mauve bg-surface2 justify-self-end;
 }
 
 .received p {
-  @apply p-1 px-2 break-all rounded-md dark:bg-surface0;
+  @apply p-1 px-2 break-all rounded-md bg-surface0;
 }
 
 .button-secondary {
-  @apply px-4 py-2 text-sm font-bold rounded-full dark:bg-surface0 text-mauve bg-zinc-100 hover:bg-zinc-200 dark:hover:bg-surface1
+  @apply px-4 py-2 text-sm font-bold rounded-full  bg-surface0 text-mauve  hover:bg-surface1
 }
 
 .button-primary {
-  @apply px-4 py-2 text-sm font-bold rounded-full dark:text-surface0 bg-mauve text-zinc-100 hover:bg-violet-400 hover:text-zinc-300 hover:dark:text-surface1
+  @apply px-4 py-2 text-sm font-bold rounded-full text-surface0 bg-mauve hover:text-surface1
 }
 
 
 .input-search {
-  @apply w-96 p-2 border-2 dark:border-zinc-500 border-zinc-700 rounded-md focus:outline-mauve dark:bg-zinc-900
+  @apply w-96 p-2 border-2  border-zinc-500 border-zinc-700 rounded-md focus:outline-mauve  bg-zinc-900
 }
 
 .sign-in-btn {

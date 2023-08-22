@@ -53,7 +53,7 @@ export const ImageGrid = () => {
             // const { username, photoURL } = users[userID] || { username: userID, photoURL: "" };
             const { username, photoURL } = { username: userID, photoURL: "" };
             return (
-              <div key={index} className="justify-center p-2 space-y-2 rounded-lg shadow-xl dark:bg-zinc-700">
+              <div key={index} className="justify-center p-2 space-y-2 rounded-lg shadow-xl  bg-zinc-700">
                 <div>
                 <div className="flex items-center justify-between p-2">
                 {username && <p>By {username}</p>} 
