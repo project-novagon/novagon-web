@@ -18,11 +18,11 @@ a {
 }
 
 .sent p {
-  @apply p-1 px-2 break-all rounded-md bg-mauve dark:bg-gray-secondary justify-self-end;
+  @apply p-1 px-2 break-all rounded-md bg-mauve dark:bg-surface2 justify-self-end;
 }
 
 .received p {
-  @apply p-1 px-2 break-all bg-white rounded-md dark:bg-zinc-900;
+  @apply p-1 px-2 break-all rounded-md dark:bg-surface0;
 }
 
 .button-secondary {
