@@ -5,6 +5,7 @@ import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 import { useRef, useState } from "react";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Airplane, SendDiagonal } from "iconoir-react";
 
 
 interface Message {
@@ -94,11 +95,11 @@ function ChatMessage(props: ChatMessageProps) {
           <input
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
-            placeholder="Type your message..."
-            className="h-16 px-4 m-1 text-lg leading-3 border-none rounded-md shadow-sm opacity-100 w-96 font-albertsans ring-4 bg-zinc-300 dark:bg-zinc-500 ring-zinc-400 dark:ring-zinc-600 ring-inset focus:ring-zinc-500 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:ring-4"
+            placeholder="Chat in #public-room"
+            className="w-64 h-16 px-4 m-1 text-lg leading-3 shadow-sm opacity-100 rounded-xl font-albertsans focus:outline-0 focus:ring-2 focus:ring-mauve bg-surface1 text-text"
           />
-          <button type="submit" className="w-16 h-16 px-5 transition-all rounded-md shadow-sm dark:bg-zinc-600 bg-mauve hover:shadow-lg">
-            <PaperAirplaneIcon className="send-icon" />
+          <button type="submit" className="flex items-center justify-center w-16 h-16 transition-all shadow rounded-xl bg-surface1 hover:bg-surface2 focus:ring-2 focus:ring-mauve">
+            <SendDiagonal className="w-6 h-6" />
             <p className="sr-only">send</p>
           </button>
         </form>
