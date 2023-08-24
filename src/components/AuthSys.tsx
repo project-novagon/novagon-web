@@ -106,7 +106,7 @@ export function UserMenu({ auth }: SignOutProps) {
     const photoURL = user.photoURL;
     return (
       <div className="flex items-center justify-center space-x-4 rounded-full bg-crust bg-zinc-300">
-        <img className='rounded-full w-9 h-9' src={photoURL || 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="pfp" />
+         <a href="/profile"><img className='rounded-full w-9 h-9' src={photoURL || 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="pfp" /></a>
       </div>
     );
   } else {

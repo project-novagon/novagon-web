@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply h-screen bg-white bg-base text-text font-poppins dark:mocha latte;
+  @apply h-screen bg-base text-text font-poppins dark:mocha latte;
 }
 
 h1, h2, h3, button {
@@ -18,7 +18,7 @@ a {
 }
 
 .sent p {
-  @apply p-1 px-2 break-all rounded-md bg-mauve bg-surface2 justify-self-end;
+  @apply p-1 px-2 break-all rounded-md bg-mauve dark:bg-surface2 justify-self-end;
 }
 
 .received p {
@@ -30,12 +30,7 @@ a {
 }
 
 .button-primary {
-  @apply px-4 py-2 text-sm font-bold rounded-full text-surface0 bg-mauve hover:text-surface1
-}
-
-
-.input-search {
-  @apply w-96 p-2 border-2  border-zinc-500 border-zinc-700 rounded-md focus:outline-mauve  bg-zinc-900
+  @apply px-4 py-2 text-sm font-bold rounded-full bg-mauve dark:text-text text-white
 }
 
 .sign-in-btn {

@@ -29,6 +29,7 @@ function Profile() {
                         <p>{user?.uid}</p>
                 </div>
                 }
+                <button className="button-primary" onClick={() => auth.signOut()}>Sign Out</button>
             </div>
         </>
     )
