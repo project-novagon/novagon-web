@@ -1,30 +1,29 @@
 import { useAuthState } from "react-firebase-hooks/auth";
-import { SignIn, UserMenu } from "./components/AuthSys";
+import { SignIn } from "./components/AuthSys";
 import { ImageMenu } from "./components/mainMenu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ChatBubbleLeftRightIcon, QuestionMarkCircleIcon, Squares2X2Icon } from "@heroicons/react/24/outline"
+import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline"
 import { VideoMenu } from "./components/mainMenu";
 import "firebase/firestore";
 import "firebase/auth";
 import React from "react";
 import { TOS } from "./pages/tos";
 import { auth, guestPFP } from "./firebase-config";
-import { NvgUI } from "./pages/novagon_ui";
 import { Profile } from "./pages/profile";
 import ChatRoom from "./pages/chat";
-import { HomeUI, LandingPage } from "./pages/dashboard";
-import { Menu, Transition } from "@headlessui/react";
-import { ChatBubbleEmpty, Home, HomeSimple, Iconoir, MediaImage, MediaVideo } from "iconoir-react";
+import { HomeUI } from "./pages/dashboard";
+import { ChatBubbleEmpty, HomeSimple, MediaImage, MediaVideo } from "iconoir-react";
 import { SettingsRouter } from "./pages/settings";
 
 console.log("%cStop!",
   "color:red;font-family:'Albert Sans', sans-serif;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold")
-console.log("This is a Browser Featuer made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
+console.log("This is a Browser Feature made for Developers. \nif someone asks you to copy-paste something here, then is its a %c100%",
   "font-weight: 700;",
   "scam."
 )
 
 function App() {
+  const [user] = useAuthState(auth)
   return (
     <div className="flex flex-col-reverse md:flex-col">
       <header className="sticky top-0 w-full px-5 py-0 m-0 rounded-none sm:rounded-md sm:m-1 bg-mantle">
@@ -41,7 +40,9 @@ function App() {
             <a href="/profile"><img src={guestPFP} alt="" className="block w-8 h-8 rounded-full sm:hidden"/></a>
           </div>
           <div className="items-center justify-center hidden gap-2 sm:flex ">
-            <UserMenu auth={auth} />
+          <div className="flex items-center justify-center space-x-4 rounded-full bg-crust">
+         <a href="/profile"><img className='rounded-full w-9 h-9' src={user?.photoURL || 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="pfp" /></a>
+      </div>
           </div>
         </nav>
       </header>
@@ -59,6 +60,7 @@ function App() {
           <Route path="/" element={<HomeUI />} />
         </Routes>
       </BrowserRouter>
+
     </div>
   );
 }
@@ -166,7 +168,7 @@ function Maintenance() {
           </div>
           <div>
             <h1 className="text-4xl font-bold transition-all hover:text-mauve">503</h1>
-            <p>Hey There! Novagon Web is temporarely down for maintenance.</p>
+            <p>Hey There! Novagon Web is temporarily down for maintenance.</p>
           </div>
         </div>
       </div>
@@ -175,11 +177,3 @@ function Maintenance() {
 }
 
 export default App;
-function useState(): [any, any] {
-  throw new Error("Function not implemented.");
-}
-
-function usePopper(referenceElement: any, popperElement: any): { styles: any; attributes: any; } {
-  throw new Error("Function not implemented.");
-}
-

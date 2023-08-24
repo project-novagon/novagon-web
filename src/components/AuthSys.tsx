@@ -1,9 +1,7 @@
-import { signInAnonymously, signInWithPopup, GithubAuthProvider, GoogleAuthProvider, Auth } from 'firebase/auth';
+import { signInAnonymously, signInWithPopup, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase-config";
-import { ArrowRightOnRectangleIcon, UserIcon } from "@heroicons/react/24/outline";
-import { Cancel, GithubCircle, GoogleCircle, LogOut, User, UserCircle } from 'iconoir-react';
+import { Cancel, GithubCircle, GoogleCircle, UserCircle } from 'iconoir-react';
 // Initialize Firebase
 
 export function SignIn() {
@@ -95,24 +93,6 @@ export function SignIn() {
 }
 
 
-interface SignOutProps {
-  auth: Auth;
-}
-
-export function UserMenu({ auth }: SignOutProps) {
-  const [user] = useAuthState(auth);
-  if (user) {
-    const displayName = user.displayName;
-    const photoURL = user.photoURL;
-    return (
-      <div className="flex items-center justify-center space-x-4 rounded-full bg-crust bg-zinc-300">
-         <a href="/profile"><img className='rounded-full w-9 h-9' src={photoURL || 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="pfp" /></a>
-      </div>
-    );
-  } else {
-    return null
-  }
-}
 
 interface BannedPopupProps {
   isBanned: boolean;
@@ -126,13 +106,13 @@ export function BannedPopup({ isBanned, onClose }: BannedPopupProps) {
   return (
     <div className="fixed top-0 left-0 z-50 flex items-end justify-center w-full h-full p-4 bg-black bg-opacity-50 sm:items-center sm:p-0 backdrop-blur-lg">
       <div className="space-y-2">
-        <div className="flex items-center justify-between p-2 space-x-16 rounded-full bg-base bg-zinc-300">
+        <div className="flex items-center justify-between p-2 space-x-16 rounded-full bg-base">
           <h2 className="self-center ml-2 text-2xl font-bold">Account Banned</h2>
           <button onClick={onClose} className="transition-all hover:text-mauve">
             <Cancel className='w-8 h-8'/>
           </button>
         </div>
-        <div className="p-4 bg-base bg-zinc-300 rounded-3xl">
+        <div className="p-4 bg-base rounded-3xl">
           <p>Hello. Your account has been banned.</p>
           <p>Reason: Unknown.</p>
           <p>If you think its a mistake, or have any questions, <a href="mailto:contactnovagon@gmail.com" className="underline text-mauve">Contact Us.</a></p>
