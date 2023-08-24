@@ -33,15 +33,15 @@ function App() {
             <h2 className="hidden text-2xl md:block">Novagon Web</h2>
           </div>
           <div className="flex flex-row space-x-4">
-            <a href="/"><HomeSimple className="w-8 h-8 m-0 "/></a>
-            <a href="/chat"><ChatBubbleEmpty className="w-8 h-8 m-0 "/></a>
-            <a href="/videos"><MediaVideo className="w-8 h-8 m-0 "/></a>
-            <a href="/images"><MediaImage className="w-8 h-8 m-0 "/></a>
-            <a href="/profile"><img src={guestPFP} alt="" className="block w-8 h-8 rounded-full sm:hidden"/></a>
+            <a href="/"><HomeSimple className="w-8 h-8 m-0 "/><p className="sr-only">Home</p></a>
+            <a href="/chat"><ChatBubbleEmpty className="w-8 h-8 m-0 "/><p className="sr-only">Chat</p></a>
+            <a href="/videos"><MediaVideo className="w-8 h-8 m-0 "/><p className="sr-only">Videos</p></a>
+            <a href="/images"><MediaImage className="w-8 h-8 m-0 "/><p className="sr-only">Images</p></a>
+            <a href="/profile"><img src={user?.photoURL || guestPFP} alt="" className="block w-8 h-8 rounded-full sm:hidden"/><p className="sr-only">Profile</p></a>
           </div>
           <div className="items-center justify-center hidden gap-2 sm:flex ">
           <div className="flex items-center justify-center space-x-4 rounded-full bg-crust">
-         <a href="/profile"><img className='rounded-full w-9 h-9' src={user?.photoURL || 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="pfp" /></a>
+         <a href="/profile"><img className='rounded-full w-9 h-9' src={user?.photoURL || guestPFP} alt="pfp" /></a>
       </div>
           </div>
         </nav>
