@@ -29,7 +29,7 @@ function ChatMessage(props: ChatMessageProps) {
   
     return (
       <div className={`message ${messageClass}`}>
-        <img src={photoURL ? photoURL : 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="User Avatar" className="rounded-full w-9 h.9"/>
+        <img src={photoURL ? photoURL : 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="User Avatar" className="rounded-full w-9"/>
         <div>
           <span className="display-name">{displayName}</span>
           <p className="flex-wrap">{text}</p>
