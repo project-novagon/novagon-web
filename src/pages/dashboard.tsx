@@ -60,6 +60,7 @@ function Dashboard() {
     return (
             <div className="p-4">
             <h1 className="hidden text-3xl sm:block">Hello, {user?.displayName ? user.displayName : "Guest"}</h1>
+            
             </div>
     )
 }

@@ -115,7 +115,7 @@ export function BannedPopup({ isBanned, onClose }: BannedPopupProps) {
         <div className="p-4 bg-base rounded-3xl">
           <p>Hello. Your account has been banned.</p>
           <p>Reason: Unknown.</p>
-          <p>If you think its a mistake, or have any questions, <a href="mailto:contactnovagon@gmail.com" className="underline text-mauve">Contact Us.</a></p>
+          <p>If you think its a mistake, or have any questions, <a href="mailto:project.novagon@gmail.com" className="underline text-mauve">Contact Us.</a></p>
         </div>
       </div>
     </div>

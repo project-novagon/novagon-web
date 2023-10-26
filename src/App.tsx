@@ -38,11 +38,11 @@ function App() {
             <a href="/videos"><MediaVideo className="w-8 h-8 m-0 "/><p className="sr-only">Videos</p></a>
             <a href="/images"><MediaImage className="w-8 h-8 m-0 "/><p className="sr-only">Images</p></a>
             <a href="/profile"><img src={user?.photoURL || guestPFP} alt="" className="block w-8 h-8 rounded-full sm:hidden"/><p className="sr-only">Profile</p></a>
-          </div>
-          <div className="items-center justify-center hidden gap-2 sm:flex ">
+            <div className="items-center justify-center hidden gap-2 sm:flex ">
           <div className="flex items-center justify-center space-x-4 rounded-full bg-crust">
          <a href="/profile"><img className='rounded-full w-9 h-9' src={user?.photoURL || guestPFP} alt="pfp" /></a>
       </div>
+          </div>
           </div>
         </nav>
       </header>
