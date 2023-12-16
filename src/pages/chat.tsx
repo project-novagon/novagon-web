@@ -7,7 +7,7 @@ import { SendDiagonal } from "iconoir-react";
 
 let EmojiConvertor = require('emoji-js');
 let emoji = new EmojiConvertor();
-emoji.allow_native(emoji.unified);
+emoji.allow_native = true;
 interface Message {
     id: string;
     text: string;
