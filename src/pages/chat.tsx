@@ -1,13 +1,13 @@
 import { auth, db } from "../firebase-config";
-import { doc, getDoc, Timestamp, collection, serverTimestamp, query, orderBy, DocumentData, Query, addDoc, CollectionReference } from "firebase/firestore";
-import { User, onAuthStateChanged } from "firebase/auth";
-import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
+import { Timestamp, collection, serverTimestamp, query, orderBy, Query, addDoc } from "firebase/firestore";
+import { User } from "firebase/auth";
 import { useRef, useState } from "react";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Airplane, SendDiagonal } from "iconoir-react";
+import { SendDiagonal } from "iconoir-react";
 
-
+let EmojiConvertor = require('emoji-js');
+let emoji = new EmojiConvertor();
+emoji.allow_native(emoji.unified);
 interface Message {
     id: string;
     text: string;
@@ -24,15 +24,15 @@ interface ChatMessageProps {
 
 function ChatMessage(props: ChatMessageProps) {
     const { message, currentUser } = props;
-    const { text, uid, photoURL, displayName } = message;
+    let { text, uid, photoURL, displayName } = message;
     const messageClass = uid === currentUser?.uid ? 'sent' : 'received';
-  
+    const newtext = emoji.replace_colons(text);
     return (
       <div className={`message ${messageClass}`}>
         <img src={photoURL ? photoURL : 'https://novagoncdn.netlify.app/img/guest_pfp.png'} alt="User Avatar" className="rounded-full w-9"/>
         <div>
           <span className="display-name">{displayName}</span>
-          <p className="flex-wrap">{text}</p>
+          <p className="flex-wrap">{newtext}</p>
         </div>
       </div>
     );
